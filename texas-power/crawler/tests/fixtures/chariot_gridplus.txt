@@ -1,0 +1,32 @@
+Electricity Facts Label
+ChariotEnergy
+OncorService Area
+GridPlus 12
+June 24, 2026
+Electricity Price
+Average Price perkWh
+Average Monthly Use 500 kWh 1,000 kWh 2,000 kWh
+Average price perkWh 20.3¢ 7.4¢ 13.4¢
+The above price disclosure is based on the following price components:
+Chariot EnergyEnergy Charge 13.42¢ per kWh
+Chariot Energy Base Monthly Charge $0 per billing cycle
+Chariot EnergyMinimum Usage Charge N/A per billing cycle
+Chariot Energy Residential Usage Credit $125 per billing cycle when usage >=1000 kWh
+Oncor Delivery Charges $4.06 per billing cycle
+Oncor Delivery Charges 6.0295¢ per kWh
+The average prices disclosure isan example based on average monthly kWh usages indicated above.
+Disclosure Chart
+Type of Product Fixed Rate
+ContractTerm 12months
+Do I have atermination fee orany fees
+associated with terminatingservice?
+Yes, $15.00multiplied by the number of months remaining on the term of
+yourcontract, determined at the time of termination.
+Can my price change duringthe contract period? Yes
+What other fees may I be charged?
+Fees not included in price above: Disconnect Notice Fee: $10; Insufficient
+FundsFee: $35; Disconnect Due to Non-Pay Fee: $25; Late Payment Penalty:
+174 Power Global Retail Texas LLC dba ChariotEnergy
+Is thisa pre-pay or pay in advance product? No
+Renewable Content This product is 100% renewable.
+Statewide average for Renewable Content 37.2%

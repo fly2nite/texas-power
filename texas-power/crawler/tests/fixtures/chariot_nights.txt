@@ -1,0 +1,18 @@
+Electricity Facts Label
+Chariot Energy
+Oncor Service Area
+Bright Nights 11
+August 1, 2026
+Average Monthly Use 500 kWh 1,000 kWh 2,000 kWh
+Average price per kWh 13.0¢ 11.6¢ 10.9¢
+Chariot Energy Daytime Energy Charge 6.32¢ per kWh
+Chariot Energy Bright Nights Energy Charge 0¢ per kWh
+Chariot Energy Base Monthly Charge $9.95 per billing cycle
+Oncor Delivery Charges $4.06 per billing cycle
+Oncor Delivery Charges 6.1196¢ per kWh
+The Average Price per kWh disclosure, above, assumes that 35% of the Average Monthly Use occurs during the Bright
+Nights hours, below. Bright Nights hours are 11:00 PM to 06:00 AM. Daytime hours are 06:00
+AM to 11:00 PM.
+Type of Product Fixed Rate
+Contract Term 11 months
+Is this a pre-pay or pay in advance product? No

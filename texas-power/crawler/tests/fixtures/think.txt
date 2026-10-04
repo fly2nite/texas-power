@@ -1,0 +1,14 @@
+ELECTRICITY FACTS LABEL (EFL)
+Think Energy
+Fixed Rate - Think Clean 12
+Oncor – 08/27/2026
+Electricity
+Price $4.06 Per Month ($)
+Average Monthly Use 500 kWh 1000 kWh 2000 kWh
+Average Price per kWh 14.5 ¢ 13.6 ¢ 13.1 ¢
+Base Charge $4.95 Per Billing Cycle ($)
+Energy Charge 6.64 ¢ Per kWh (¢)
+6.1196 ¢ Per kWh (¢)
+Type of Product Fixed Rate
+Contract Term 12 Months
+Is this a pre-pay or pay in advance product? No

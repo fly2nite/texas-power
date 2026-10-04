@@ -1,0 +1,497 @@
+{
+  "_how_to_edit": "Add a provider: copy any block, change name and site. efl_urls takes known facts-label links for providers whose websites hide them. The daily run uses this list plus every provider found on Power to Choose.",
+  "providers": [
+    {
+      "name": "TXU Energy",
+      "site": "https://www.txu.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Reliant",
+      "site": "https://www.reliant.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Green Mountain Energy",
+      "site": "https://www.greenmountainenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Direct Energy",
+      "site": "https://www.directenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Just Energy",
+      "site": "https://justenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Constellation",
+      "site": "https://www.constellation.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Champion Energy",
+      "site": "https://www.championenergyservices.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Gexa Energy",
+      "site": "https://www.gexaenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Frontier Utilities",
+      "site": "https://www.frontierutilities.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "4Change Energy",
+      "site": "https://www.4changeenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Discount Power",
+      "site": "https://www.discountpower.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Rhythm",
+      "site": "https://www.gotrhythm.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Energy Texas",
+      "site": "https://www.energytexas.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "BKV Energy",
+      "site": "https://bkvenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Chariot Energy",
+      "site": "https://www.chariotenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "GoodCharlie",
+      "site": "https://www.goodcharlie.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Cirro Energy",
+      "site": "https://www.cirroenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Ambit Energy",
+      "site": "https://www.ambitenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Amigo Energy",
+      "site": "https://www.amigoenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "TriEagle Energy",
+      "site": "https://www.trieagleenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "APG&E",
+      "site": "https://www.apge.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Express Energy",
+      "site": "https://www.expressenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Pulse Power",
+      "site": "https://www.pulsepower.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Octopus Energy",
+      "site": "https://octopusenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Tara Energy",
+      "site": "https://www.taraenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Payless Power",
+      "site": "https://www.paylesspower.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Veteran Energy",
+      "site": "https://www.veteranenergy.us",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Think Energy",
+      "site": "https://www.thinkenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Atlantex Power",
+      "site": "https://www.atlantexpower.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Hudson Energy",
+      "site": "https://www.hudsonenergy.net",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Engie Resources",
+      "site": "https://www.engieresources.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Shell Energy",
+      "site": "https://www.shellenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "XOOM Energy",
+      "site": "https://xoomenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Spark Energy",
+      "site": "https://www.sparkenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Summer Energy",
+      "site": "https://www.summerenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Tesla Electric",
+      "site": "https://www.tesla.com/support/energy/tesla-electric",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Brilliant Energy",
+      "site": "https://www.brilliantenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Infuse Energy",
+      "site": "https://www.infuseenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Iberdrola Texas",
+      "site": "https://www.iberdrolatexas.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Lone Star Energy",
+      "site": "https://www.lonestarenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    },
+    {
+      "name": "Acacia Energy",
+      "site": "https://acaciaenergy.com",
+      "seed_paths": [
+        "/electricity-plans",
+        "/plans",
+        "/residential",
+        "/texas-electricity-plans",
+        "/rates"
+      ],
+      "efl_urls": []
+    }
+  ]
+}

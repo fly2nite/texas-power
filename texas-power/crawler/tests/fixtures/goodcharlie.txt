@@ -1,0 +1,33 @@
+Electricity Facts Label (EFL)
+GoodCharlie
+GoodEnergy 12
+ONCOR
+23-Sep-2026
+Electricity 
+Price
+Average monthly use: 500 kWh 1000 kWh 2000 kWh
+Average price per kWh: 15¢ 14.1¢ 13.7¢
+GoodCharlie:
+Your average price for electricity service will vary 
+according to your usage. The price you pay each
+month will consist of the Energy Charge, Base 
+Charge, and Transmission & Distribution Service 
+Provider (TDSP) Charges. Any nonrecurring fees from
+the TDSP will be passed through without mark-up.
+Energy Charge: 7.2¢/kWh
+Base Charge: $4.95 per month
+ONCOR:
+Delivery Charge: 6.0295¢/kWh
+$4.06 per month
+Type of product Fixed
+Contract term 12 months
+Is there a termination fee or 
+any fees associated with 
+terminating service?
+Yes. $20 per month remaining on the Contract term.
+A late fee of 5% of past-due balances, a disconnection fee of $25
+Is this a pre-pay or pay in 
+advance product? No
+Renewable content 24.7%
+Statewide average for 
+renewable content 37.2%

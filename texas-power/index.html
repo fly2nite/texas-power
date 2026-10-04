@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>True Cost: every Texas electricity plan, priced on your real usage</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF0EF; --surface:#FFFFFF; --ink:#17232B; --muted:#55636B; --line:#C9D1D0;
+  --volt:#F2B705; --volt-deep:#B9600A; --save:#1F7A6D; --warn:#B23A2E;
+  --heat0:#DCE3E2;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#121A1F; --surface:#1A252C; --ink:#E8EEEC; --muted:#9AA8AE; --line:#2E3C44;
+    --volt:#F5C02A; --volt-deep:#E07B1A; --save:#4FB3A3; --warn:#E06A5C; --heat0:#24323A;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121A1F; --surface:#1A252C; --ink:#E8EEEC; --muted:#9AA8AE; --line:#2E3C44;
+  --volt:#F5C02A; --volt-deep:#E07B1A; --save:#4FB3A3; --warn:#E06A5C; --heat0:#24323A;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Archivo",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  font-variation-settings:"wdth" 100;font-size:17px;line-height:1.55}
+.wrap{max-width:780px;margin:0 auto;padding:40px 20px 80px}
+h1{font-size:clamp(2.2rem,7vw,3.6rem);line-height:1.02;margin:0 0 16px;
+  font-variation-settings:"wdth" 68;font-weight:800;letter-spacing:-.01em}
+h2{font-size:1.5rem;margin:0 0 6px;font-variation-settings:"wdth" 78;font-weight:750;
+  display:flex;gap:12px;align-items:baseline}
+h2 .step{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:50%;
+  background:var(--ink);color:var(--bg);font-size:.95rem;flex:none;transform:translateY(-3px)}
+p{margin:0 0 12px;max-width:66ch}
+.lede{font-size:1.15rem;color:var(--muted)}
+a{color:inherit;text-decoration-color:var(--volt);text-decoration-thickness:2px;text-underline-offset:3px}
+section{margin-top:44px;padding-top:28px;border-top:2px solid var(--ink)}
+.drop{display:block;border:2px dashed var(--line);border-radius:10px;padding:26px 20px;background:var(--surface);
+  cursor:pointer;text-align:left;margin:14px 0}
+.drop:hover,.drop.over{border-color:var(--volt-deep)}
+.drop strong{display:block;font-size:1.05rem}
+.drop span{color:var(--muted);font-size:.95rem}
+.drop input{position:absolute;opacity:0;width:1px;height:1px}
+.drop:focus-within{outline:3px solid var(--volt);outline-offset:2px}
+.note{font-size:.92rem;color:var(--muted)}
+.err{color:var(--warn);font-weight:600}
+.ok{color:var(--save);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:2px;margin:18px 0;background:var(--line);border:2px solid var(--line);border-radius:10px;overflow:hidden}
+.stats div{background:var(--surface);padding:12px 14px}
+.stats b{display:block;font-size:1.6rem;font-variation-settings:"wdth" 70;line-height:1.1}
+.stats small{color:var(--muted);font-size:.85rem}
+.heat{overflow-x:auto;margin:10px 0 4px}
+.heat table{border-collapse:separate;border-spacing:2px;font-size:.72rem;color:var(--muted)}
+.heat td{width:22px;height:18px;border-radius:3px;padding:0}
+.heat th{font-weight:500;padding:0 6px 0 0;text-align:right}
+.heat thead th{text-align:center;padding:0 0 2px}
+.legend{display:flex;gap:6px;align-items:center;font-size:.8rem;color:var(--muted)}
+.legend i{display:inline-block;width:60px;height:10px;border-radius:3px;background:linear-gradient(90deg,var(--heat0),var(--volt),var(--volt-deep))}
+fieldset{border:0;padding:0;margin:14px 0;display:flex;flex-wrap:wrap;gap:14px 20px}
+label.f{display:flex;flex-direction:column;font-size:.88rem;color:var(--muted);gap:4px}
+input[type=number],input[type=text],select{font:inherit;font-size:1rem;color:var(--ink);background:var(--surface);
+  border:1.5px solid var(--line);border-radius:6px;padding:7px 9px;min-width:0}
+input[type=number]{width:110px}
+.chk{display:flex;gap:8px;align-items:flex-start;font-size:.95rem}
+.chk input{margin-top:5px;accent-color:var(--volt-deep)}
+:focus-visible{outline:3px solid var(--volt);outline-offset:2px}
+details{background:var(--surface);border:1.5px solid var(--line);border-radius:10px;padding:12px 16px;margin:14px 0}
+summary{cursor:pointer;font-weight:650}
+.months{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px;margin:12px 0}
+.months input{width:100%}
+button{font:inherit;font-weight:650;border:0;border-radius:8px;padding:10px 16px;cursor:pointer;background:var(--ink);color:var(--bg)}
+button.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line)}
+.results{margin-top:16px}
+.plan{display:grid;grid-template-columns:44px 1fr auto;gap:4px 14px;padding:16px 0;border-bottom:1px solid var(--line);align-items:start}
+.plan .rank{font-size:1.5rem;font-variation-settings:"wdth" 65;font-weight:800;color:var(--muted)}
+.plan:first-child .rank{color:var(--volt-deep)}
+.plan .name{font-weight:700;line-height:1.3}
+.plan .prov{color:var(--muted);font-size:.92rem}
+.plan .cost{text-align:right}
+.plan .cost b{font-size:1.45rem;font-variation-settings:"wdth" 70;display:block;line-height:1.1}
+.plan .cost small{color:var(--muted);font-size:.85rem}
+.plan .meta{grid-column:2/4;font-size:.88rem;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 16px}
+.plan .meta a{color:var(--ink)}
+.flag{color:var(--warn);font-weight:600}
+.tag{color:var(--save);font-weight:600}
+.diff{color:var(--warn);font-size:.85rem}
+.hidden{display:none}
+footer{margin-top:56px;font-size:.88rem;color:var(--muted)}
+footer h3{color:var(--ink);font-size:1rem;margin:20px 0 4px}
+@media (max-width:520px){
+  .plan{grid-template-columns:34px 1fr}
+  .plan .cost{grid-column:2;text-align:left}
+  .plan .meta{grid-column:2}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <h1>Every Texas electricity plan, priced on your year</h1>
+  <p class="lede">Advertised rates assume you use exactly 1,000 kWh every month. You don't. Upload your smart meter history and every fixed-rate plan we can find, on Power to Choose or not, gets priced against your actual twelve months.</p>
+  <p class="note" id="dataNote">Loading plan list…</p>
+</header>
+
+<section id="s1">
+  <h2><span class="step">1</span>Your usage</h2>
+  <p>Log in at <a href="https://www.smartmetertexas.com" target="_blank" rel="noopener">smartmetertexas.com</a>, choose <em>Energy Data 15 Min Interval</em>, pick the last 12 months, and export the CSV. Daily or monthly exports work too. Your file stays on your device.</p>
+  <label class="drop" id="usageDrop">
+    <input type="file" id="usageFile" accept=".csv,text/csv">
+    <strong>Choose or drop your usage CSV</strong>
+    <span>Smart Meter Texas exports, or any CSV with a date column and a kWh column</span>
+  </label>
+  <details id="manualBox">
+    <summary>No file? Type in 12 months from your bills</summary>
+    <div class="months" id="monthInputs"></div>
+    <button type="button" id="useManual">Use these numbers</button>
+  </details>
+  <div id="usageMsg" aria-live="polite"></div>
+
+  <div id="usageOut" class="hidden">
+    <div class="stats" id="stats"></div>
+    <p class="note">When you use power, by month and hour of day. Darker means more kWh.</p>
+    <div class="heat" id="heat"></div>
+    <div class="legend"><span>less</span><i></i><span>more</span></div>
+    <fieldset>
+      <label class="f">Delivery area (utility)
+        <select id="tdu">
+          <option value="oncor">Oncor (Dallas–Fort Worth and more)</option>
+          <option value="centerpoint">CenterPoint (Houston)</option>
+          <option value="aep_central">AEP Texas Central</option>
+          <option value="aep_north">AEP Texas North</option>
+          <option value="tnmp">Texas-New Mexico Power</option>
+          <option value="lubbock">Lubbock Power &amp; Light</option>
+        </select>
+      </label>
+      <label class="f">Electric car, miles per day charged at home
+        <input type="number" id="evMiles" min="0" step="5" value="0">
+      </label>
+      <label class="f">Charging starts<select id="evStart"></select></label>
+      <label class="f">Charging ends<select id="evEnd"></select></label>
+    </fieldset>
+    <p class="note" id="tduNote"></p>
+  </div>
+</section>
+
+<section id="s2">
+  <h2><span class="step">2</span>Cheapest for you</h2>
+  <fieldset>
+    <label class="f">Shortest term (months)<input type="number" id="fMin" value="6" min="1"></label>
+    <label class="f">Longest term (months)<input type="number" id="fMax" value="36" min="1"></label>
+    <label class="chk"><input type="checkbox" id="fPlain" checked> Simple plans only: no bill credits, usage fees, tiers or time-of-day pricing</label>
+  </fieldset>
+  <p class="note">Only fixed-rate plans that aren't prepaid are shown. Uncheck simple plans only to include free-nights and credit plans, each priced against your actual hours and months.</p>
+  <div id="resultMsg" class="note">Upload your usage to see your ranking.</div>
+  <div class="results" id="results"></div>
+  <button type="button" class="ghost hidden" id="more">Show more plans</button>
+</section>
+
+<footer>
+  <h3>Where the plans come from</h3>
+  <p>Every day this site reads Power to Choose, the providers' own websites, and the facts labels every Texas plan is required to publish, including labels that aren't linked from anywhere. Plans marked "not on Power to Choose" were found that way.</p>
+  <h3>How the price is calculated</h3>
+  <p>Each plan's facts label is turned into its exact pricing formula, which is checked against the label's own published averages before it's used. Your bill is then calculated month by month, and hour by hour for time-of-day plans. When a label can't be fully read, the plan is priced from its published averages and marked as an estimate.</p>
+  <h3>What this doesn't know</h3>
+  <p>Next year won't match last year exactly; a hotter summer costs more on every plan, so the ranking usually holds even when totals move. Delivery charges set by your utility change a few times a year and apply to all plans alike. Always open the facts label before signing up.</p>
+  <h3>Disclosure</h3>
+  <p id="disclosure">Plans are ranked only by estimated cost.</p>
+</footer>
+</div>
+
+<script>
+/* ===== Referral links =====
+   Map part of a provider's name (lowercase) to your referral sign-up link.
+   Ranking never looks at this list. Example:
+   "gexa": "https://www.gexaenergy.com/?ref=YOURCODE",            */
+const REFERRAL_LINKS = {
+};
+
+const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const DIM=[31,28,31,30,31,30,31,31,30,31,30,31];
+const GENERIC_SHAPE=[3.4,3.2,3.1,3,2.9,2.9,3,3.3,3.5,3.6,3.8,4.1,4.5,4.9,5.3,5.6,5.8,5.8,5.6,5.3,5,4.7,4.2,3.7];
+const TDU_PREFIX=[["10443720","oncor"],["1017699","oncor"],["1008901","centerpoint"],["10032789","aep_central"],["10204049","aep_north"],["1040051","tnmp"]];
+const WEEKEND=2/7;
+
+let usage=null, plans=[], updated=null, shown=25;
+const $=id=>document.getElementById(id);
+const fmt$=n=>"$"+Math.round(n).toLocaleString();
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+/* ---------- Plan list ---------- */
+fetch("data/plans.json",{cache:"no-cache"}).then(r=>r.json()).then(d=>{
+  plans=d.plans||[]; updated=d.updated;
+  const outside=plans.filter(p=>!(p.sources||[]).includes("ptc")).length;
+  $("dataNote").textContent=plans.length
+    ? `${plans.length.toLocaleString()} plans checked${updated?" on "+new Date(updated).toLocaleDateString():""}, ${outside.toLocaleString()} of them not listed on Power to Choose. Your usage file never leaves your device.`
+    : "The plan list hasn't been built yet. It fills in after the first daily update runs.";
+  render();
+}).catch(()=>{$("dataNote").textContent="Couldn't load the plan list. Try refreshing the page.";});
+
+/* ---------- CSV ---------- */
+function parseCSV(text){
+  const rows=[];let row=[],f="",q=false;
+  for(let i=0;i<text.length;i++){
+    const c=text[i];
+    if(q){ if(c=='"'){ if(text[i+1]=='"'){f+='"';i++;} else q=false; } else f+=c; }
+    else if(c=='"') q=true;
+    else if(c==','){row.push(f);f="";}
+    else if(c=='\n'||c=='\r'){ if(c=='\r'&&text[i+1]=='\n')i++; row.push(f);f=""; if(row.length>1||row[0]!=="")rows.push(row); row=[]; }
+    else f+=c;
+  }
+  if(f!==""||row.length){row.push(f);rows.push(row);}
+  return rows;
+}
+const norm=h=>h.replace(/[\[\]"'\s_]/g,"").toLowerCase();
+function parseDate(s){
+  s=(s||"").trim().replace(/^'/,"");
+  let m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2,4})/);
+  if(m){let y=+m[3];if(y<100)y+=2000;return {y,m:+m[1]-1,d:+m[2]};}
+  m=s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+  if(m) return {y:+m[1],m:+m[2]-1,d:+m[3]};
+  const t=Date.parse(s); if(!isNaN(t)){const D=new Date(t);return {y:D.getFullYear(),m:D.getMonth(),d:D.getDate()};}
+  return null;
+}
+
+/* ---------- Usage ---------- */
+function loadUsage(text){
+  const rows=parseCSV(text); if(rows.length<2) throw new Error("That file looks empty.");
+  const H=rows[0].map(norm);
+  const find=(...keys)=>H.findIndex(h=>keys.some(k=>h.includes(k)));
+  const iDate=find("usagedate","date","read"), iKwh=H.findIndex(h=>h.includes("kwh")&&!h.includes("reading"));
+  const iStart=find("starttime","usagestart","time"), iType=find("surplus","consumption"), iEsi=find("esiid");
+  if(iDate<0||iKwh<0) throw new Error("Couldn't find a date column and a kWh column in that file.");
+  const sum=Array.from({length:12},()=>Array(24).fill(0)), days=Array.from({length:12},()=>new Set());
+  let surplus=0,hasHourly=false,n=0,esi="";
+  for(let r=1;r<rows.length;r++){
+    const R=rows[r]; if(R.length<=iKwh) continue;
+    const k=parseFloat(R[iKwh]); if(isNaN(k)) continue;
+    if(iType>=0&&/surplus|generation/i.test(R[iType])){surplus+=k;continue;}
+    const d=parseDate(R[iDate]); if(!d) continue;
+    if(!esi&&iEsi>=0) esi=R[iEsi].replace(/\D/g,"");
+    let hr=-1;
+    if(iStart>=0){const t=(R[iStart]||"").match(/(\d{1,2}):(\d{2})/); if(t){hr=+t[1]%24; hasHourly=true;}}
+    days[d.m].add(d.y*400+d.d);
+    if(hr>=0) sum[d.m][hr]+=k; else GENERIC_SHAPE.forEach((s,h)=>sum[d.m][h]+=k*s/100);
+    n++;
+  }
+  if(!n) throw new Error("No usage readings found in that file.");
+  const monthly=days.every(s=>s.size<=2)&&!hasHourly;
+  const hourly=sum.map((row,m)=>{const dc=days[m].size; if(!dc) return null; const sc=monthly?1/dc:DIM[m]/dc; return row.map(v=>v*sc);});
+  const missing=hourly.map((r,m)=>r?null:m).filter(m=>m!==null);
+  if(missing.length>6) throw new Error("Need at least 6 months of data; this file has "+(12-missing.length)+".");
+  missing.forEach(m=>{for(let o=1;o<12;o++){const a=(m+o)%12,b=(m+12-o)%12; const src=!missing.includes(a)?hourly[a]:!missing.includes(b)?hourly[b]:null; if(src){hourly[m]=src.slice();break;}}});
+  let tdu=null; for(const [p,t] of TDU_PREFIX) if(esi.startsWith(p)){tdu=t;break;}
+  return {hourly,hasHourly,surplus,missing,tdu};
+}
+function useManual(){
+  const vals=[...document.querySelectorAll("#monthInputs input")].map(i=>parseFloat(i.value));
+  if(vals.filter(v=>v>0).length<12){$("usageMsg").innerHTML='<p class="err">Fill in all 12 months.</p>';return;}
+  usage={hourly:vals.map(v=>GENERIC_SHAPE.map(s=>v*s/100)),hasHourly:false,surplus:0,missing:[],tdu:null};
+  showUsage();
+}
+function withEV(){
+  const miles=parseFloat($("evMiles").value)||0, h=usage.hourly.map(r=>r.slice());
+  if(miles>0){
+    const a=+$("evStart").value,b=+$("evEnd").value, hrs=[];
+    for(let x=a;x!==b;x=(x+1)%24)hrs.push(x); if(!hrs.length) hrs.push(a);
+    h.forEach((row,m)=>hrs.forEach(x=>row[x]+=miles*0.3/hrs.length*DIM[m]));
+  }
+  return h;
+}
+function showUsage(){
+  const h=withEV(), mon=h.map(r=>r.reduce((a,b)=>a+b,0)), tot=mon.reduce((a,b)=>a+b,0);
+  const night=h.reduce((a,r)=>a+r.slice(21).concat(r.slice(0,6)).reduce((x,y)=>x+y,0),0)/tot;
+  const hi=mon.indexOf(Math.max(...mon)), lo=mon.indexOf(Math.min(...mon));
+  $("stats").innerHTML=
+    `<div><b>${Math.round(tot).toLocaleString()}</b><small>kWh per year</small></div>`+
+    `<div><b>${Math.round(tot/12).toLocaleString()}</b><small>kWh average month</small></div>`+
+    `<div><b>${Math.round(mon[hi]).toLocaleString()}</b><small>kWh in ${MONTHS[hi]}, your peak</small></div>`+
+    `<div><b>${Math.round(mon[lo]).toLocaleString()}</b><small>kWh in ${MONTHS[lo]}, your low</small></div>`+
+    (usage.hasHourly?`<div><b>${Math.round(night*100)}%</b><small>used 9 pm to 6 am</small></div>`:"");
+  const max=Math.max(...h.flat());
+  let t="<table><thead><tr><th></th>"+Array.from({length:24},(_,i)=>`<th>${i%3==0?(i==0?"12a":i<12?i+"a":i==12?"12p":(i-12)+"p"):""}</th>`).join("")+"</tr></thead><tbody>";
+  h.forEach((r,m)=>{t+=`<tr><th>${MONTHS[m]}</th>`+r.map(v=>`<td style="background:${heat(v/max)}" title="${MONTHS[m]} ${v.toFixed(0)} kWh"></td>`).join("")+"</tr>";});
+  $("heat").innerHTML=t+"</tbody></table>";
+  if(usage.tdu){$("tdu").value=usage.tdu;$("tduNote").textContent="Delivery area detected from your meter ID.";}
+  else $("tduNote").textContent="Pick the utility that owns the poles and wires at your address. It's printed on your bill.";
+  const notes=[];
+  if(!usage.hasHourly) notes.push("No time-of-day data, so hourly patterns use a typical Texas home. Free-nights plans will be estimates.");
+  if(usage.missing.length) notes.push("Missing months ("+usage.missing.map(m=>MONTHS[m]).join(", ")+") were filled from neighboring months.");
+  if(usage.surplus>0) notes.push("Solar export detected ("+Math.round(usage.surplus).toLocaleString()+" kWh). Buyback credits aren't priced here.");
+  $("usageMsg").innerHTML=`<p class="ok">Usage loaded.</p>`+notes.map(n=>`<p class="note">${n}</p>`).join("");
+  $("usageOut").classList.remove("hidden");
+  render();
+}
+function heat(x){
+  const s=getComputedStyle(document.documentElement);
+  const c0=s.getPropertyValue("--heat0").trim(),c1=s.getPropertyValue("--volt").trim(),c2=s.getPropertyValue("--volt-deep").trim();
+  return x<.5?mix(c0,c1,x*2):mix(c1,c2,(x-.5)*2);
+}
+function mix(a,b,t){const p=h=>[1,3,5].map(i=>parseInt(h.slice(i,i+2),16));const A=p(a),B=p(b);return "rgb("+A.map((v,i)=>Math.round(v+(B[i]-v)*t)).join(",")+")";}
+
+/* ---------- Pricing (mirrors crawler/efl_parser.py bill()) ---------- */
+const inWin=(h,a,b)=>a==null||a===b?false:(a<b?h>=a&&h<b:h>=a||h<b);
+function monthBill(model,row){
+  const k=row.reduce((a,b)=>a+b,0);
+  if(model.points){
+    const P=[[500,5*model.points[0]],[1000,10*model.points[1]],[2000,20*model.points[2]]];
+    const [a,b]=k>1000?[P[1],P[2]]:[P[0],P[1]];
+    return Math.max(0,a[1]+(b[1]-a[1])*(k-a[0])/(b[0]-a[0]));
+  }
+  let bill=(model.fixed||0)+k*(model.tdu_rate||0)/100;
+  const off=model.offpeak, tiers=model.tiers||[];
+  if(off){
+    let offK=0;
+    row.forEach((v,h)=>{ const inside=inWin(h,off.start,off.end); offK+= off.weekend ? v*WEEKEND + (inside?v*(1-WEEKEND):0) : (inside?v:0); });
+    bill+=(k-offK)*tiers[0].rate/100+offK*off.rate/100;
+  }else{
+    tiers.forEach(t=>{const hi=t.hi==null?Infinity:t.hi; bill+=Math.max(0,Math.min(k,hi)-t.lo)*t.rate/100;});
+  }
+  (model.credits||[]).forEach(c=>{ if(k>=c.min&&(c.max==null||k<=c.max)) bill-=c.amount; });
+  const mf=model.min_fee;
+  if(mf){ if(mf.per_day){ if(k/30<mf.under) bill+=mf.amount*30; } else if(k<mf.under) bill+=mf.amount; }
+  return bill;
+}
+
+/* ---------- Ranking ---------- */
+function render(){
+  if(!usage) return;
+  if(!plans.length){$("resultMsg").textContent="The plan list isn't available yet.";return;}
+  const H=withEV(), tot=H.flat().reduce((a,b)=>a+b,0);
+  const tdu=$("tdu").value, tmin=+$("fMin").value||0, tmax=+$("fMax").value||99, plain=$("fPlain").checked;
+  const list=[];
+  plans.forEach(p=>{
+    if(p.tdu!==tdu||p.type!=="fixed"||p.prepaid) return;
+    if(p.term&&(p.term<tmin||p.term>tmax)) return;
+    if(plain&&(p.gimmicks||[]).length) return;
+    const annual=H.reduce((a,row)=>a+monthBill(p.model,row),0);
+    if(!(annual>0)) return;
+    list.push({...p,annual});
+  });
+  list.sort((a,b)=>a.annual-b.annual);
+  if(!list.length){$("resultMsg").textContent="No plans match. Check the delivery area and term range.";$("results").innerHTML="";$("more").classList.add("hidden");return;}
+  const best=list[0].annual;
+  $("resultMsg").textContent=`${list.length} plans priced against your ${Math.round(tot).toLocaleString()} kWh year.`;
+  let paid=false;
+  $("results").innerHTML=list.slice(0,shown).map((p,i)=>{
+    const ref=Object.entries(REFERRAL_LINKS).find(([k])=>(p.provider||"").toLowerCase().includes(k));
+    if(ref) paid=true;
+    const link=ref?ref[1]:p.enroll, meta=[];
+    if(p.term) meta.push(p.term+"-month term");
+    if(p.cancel_fee) meta.push("cancel fee "+esc(p.cancel_fee));
+    if(p.averages) meta.push("advertised "+p.averages[1]+"¢ at 1,000 kWh");
+    if(!(p.sources||[]).includes("ptc")) meta.push('<span class="tag">not on Power to Choose</span>');
+    if(p.renewable>=100) meta.push('<span class="tag">100% renewable</span>');
+    (p.gimmicks||[]).forEach(g=>meta.push(`<span class="flag">${esc(g)}</span>`));
+    if(p.method==="points") meta.push('<span class="flag">estimate: confirm on the facts label</span>');
+    if(p.new_customers_only) meta.push("new customers only");
+    if(p.efl) meta.push(`<a href="${esc(p.efl)}" target="_blank" rel="noopener">Facts label</a>`);
+    if(link) meta.push(`<a href="${esc(link)}" target="_blank" rel="noopener sponsored">Sign up</a>`);
+    return `<div class="plan"><div class="rank">${i+1}</div>
+      <div><div class="name">${esc(p.product)}</div><div class="prov">${esc(p.provider)}</div></div>
+      <div class="cost"><b>${fmt$(p.annual)}</b><small>per year, ${(p.annual/tot*100).toFixed(1)}¢/kWh</small>${i?`<div class="diff">+${fmt$(p.annual-best)} vs #1</div>`:""}</div>
+      <div class="meta">${meta.join("")}</div></div>`;
+  }).join("");
+  $("more").classList.toggle("hidden",list.length<=shown);
+  $("disclosure").textContent=Object.keys(REFERRAL_LINKS).length
+    ?"Plans are ranked only by estimated cost. Some sign-up links pay this site a referral fee; that never changes the order."
+    :"Plans are ranked only by estimated cost.";
+}
+
+/* ---------- Wiring ---------- */
+const hourLabel=h=>h==0?"12 am":h<12?h+" am":h==12?"12 pm":(h-12)+" pm";
+[["evStart",0],["evEnd",6]].forEach(([id,def])=>{$(id).innerHTML=Array.from({length:24},(_,h)=>`<option value="${h}"${h==def?" selected":""}>${hourLabel(h)}</option>`).join("");});
+$("monthInputs").innerHTML=MONTHS.map(m=>`<label class="f">${m}<input type="number" min="0" placeholder="kWh"></label>`).join("");
+$("useManual").onclick=useManual;
+(function(){
+  const d=$("usageDrop"),inp=$("usageFile");
+  const go=f=>{if(!f)return;f.text().then(t=>{try{usage=loadUsage(t);shown=25;showUsage();}catch(e){$("usageMsg").innerHTML=`<p class="err">${esc(e.message)}</p>`;}});};
+  inp.onchange=()=>go(inp.files[0]);
+  d.addEventListener("dragover",e=>{e.preventDefault();d.classList.add("over");});
+  d.addEventListener("dragleave",()=>d.classList.remove("over"));
+  d.addEventListener("drop",e=>{e.preventDefault();d.classList.remove("over");go(e.dataTransfer.files[0]);});
+})();
+["tdu","evMiles","evStart","evEnd"].forEach(id=>$(id).addEventListener("change",()=>{if(usage)showUsage();}));
+["fMin","fMax","fPlain"].forEach(id=>$(id).addEventListener("change",()=>{shown=25;render();}));
+$("more").onclick=()=>{shown+=25;render();};
+</script>
+</body>
+</html>
