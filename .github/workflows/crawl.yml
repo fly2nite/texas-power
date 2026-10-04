@@ -11,7 +11,7 @@ permissions:
 jobs:
   crawl:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 150
     defaults:
       run:
         working-directory: texas-power
@@ -25,11 +25,13 @@ jobs:
       - name: Check the label reader still works
         run: python crawler/tests/test_parser.py
       - name: Find and read every plan
-        run: python crawler/run.py
+        run: python -u crawler/run.py
       - name: Save the new plan list
         run: |
           git config user.name "plan-updater"
           git config user.email "actions@users.noreply.github.com"
           git add data/
-          git diff --cached --quiet || git commit -m "Plan list for $(date -u +%F)"
+          git diff --cached --quiet && exit 0
+          git commit -m "Plan list for $(date -u +%F)"
+          git pull --rebase origin main
           git push
