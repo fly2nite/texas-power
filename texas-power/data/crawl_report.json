@@ -1,0 +1,316 @@
+{
+ "started": "2026-10-04T23:00:17.463671+00:00",
+ "providers": {
+  "TXU Energy": {
+   "site": "https://www.txu.com",
+   "pages": 60,
+   "labels_on_site": 0
+  },
+  "Reliant": {
+   "site": "https://www.reliant.com",
+   "pages": 60,
+   "labels_on_site": 1
+  },
+  "Green Mountain Energy": {
+   "site": "https://www.greenmountainenergy.com",
+   "pages": 60,
+   "labels_on_site": 0
+  },
+  "Direct Energy": {
+   "site": "https://www.directenergy.com",
+   "pages": 60,
+   "labels_on_site": 0
+  },
+  "Just Energy": {
+   "site": "https://justenergy.com",
+   "pages": 60,
+   "labels_on_site": 1
+  },
+  "Constellation": {
+   "site": "https://www.constellation.com",
+   "pages": 60,
+   "labels_on_site": 3
+  },
+  "Champion Energy": {
+   "site": "https://www.championenergyservices.com",
+   "pages": 26,
+   "labels_on_site": 2
+  },
+  "Gexa Energy": {
+   "site": "https://www.gexaenergy.com",
+   "pages": 60,
+   "labels_on_site": 3
+  },
+  "Frontier Utilities": {
+   "site": "https://www.frontierutilities.com",
+   "pages": 10,
+   "labels_on_site": 0
+  },
+  "4Change Energy": {
+   "site": "https://www.4changeenergy.com",
+   "pages": 23,
+   "labels_on_site": 0
+  },
+  "Discount Power": {
+   "site": "https://www.discountpowertx.com",
+   "pages": 40,
+   "labels_on_site": 0
+  },
+  "Rhythm": {
+   "site": "https://www.gotrhythm.com",
+   "pages": 54,
+   "labels_on_site": 0
+  },
+  "Energy Texas": {
+   "site": "https://www.energytexas.com",
+   "pages": 6,
+   "labels_on_site": 0
+  },
+  "BKV Energy": {
+   "site": "https://bkvenergy.com",
+   "pages": 60,
+   "labels_on_site": 1
+  },
+  "Chariot Energy": {
+   "site": "https://www.chariotenergy.com",
+   "pages": 60,
+   "labels_on_site": 1
+  },
+  "GoodCharlie": {
+   "site": "https://www.goodcharlie.com",
+   "pages": 8,
+   "labels_on_site": 0
+  },
+  "Cirro Energy": {
+   "site": "https://www.cirroenergy.com",
+   "pages": 60,
+   "labels_on_site": 1
+  },
+  "Ambit Energy": {
+   "site": "https://www.ambitenergy.com",
+   "pages": 60,
+   "labels_on_site": 1
+  },
+  "Amigo Energy": {
+   "site": "https://www.amigoenergy.com",
+   "pages": 60,
+   "labels_on_site": 13
+  },
+  "TriEagle Energy": {
+   "site": "https://www.trieagleenergy.com",
+   "pages": 60,
+   "labels_on_site": 6
+  },
+  "APG&E": {
+   "site": "https://www.apge.com",
+   "pages": 60,
+   "labels_on_site": 0
+  },
+  "Express Energy": {
+   "site": "https://shopping.myexpressenergy.com",
+   "pages": 1,
+   "labels_on_site": 0
+  },
+  "Pulse Power": {
+   "site": "https://www.pulsepower.com",
+   "pages": 6,
+   "labels_on_site": 0
+  },
+  "Octopus Energy": {
+   "site": "https://octopusenergy.com",
+   "pages": 9,
+   "labels_on_site": 0
+  },
+  "Tara Energy": {
+   "site": "https://www.taraenergy.com",
+   "pages": 60,
+   "labels_on_site": 7
+  },
+  "Payless Power": {
+   "site": "https://www.paylesspower.com",
+   "pages": 60,
+   "labels_on_site": 0
+  },
+  "Veteran Energy": {
+   "site": "https://shopping.veteranenergyusa.com",
+   "pages": 1,
+   "labels_on_site": 0
+  },
+  "Think Energy": {
+   "site": "https://www.thinkenergy.com",
+   "pages": 28,
+   "labels_on_site": 0
+  },
+  "Atlantex Power": {
+   "site": "https://www.atlantexpower.com",
+   "pages": 10,
+   "labels_on_site": 0
+  },
+  "Hudson Energy": {
+   "site": "https://www.hudsonenergy.net",
+   "pages": 29,
+   "labels_on_site": 1
+  },
+  "Engie Resources": {
+   "site": "https://www.engieresources.com",
+   "pages": 60,
+   "labels_on_site": 1
+  },
+  "Shell Energy": {
+   "site": "https://www.shellenergy.com",
+   "pages": 6,
+   "labels_on_site": 0
+  },
+  "XOOM Energy": {
+   "site": "https://xoomenergy.com",
+   "pages": 60,
+   "labels_on_site": 2
+  },
+  "Spark Energy": {
+   "site": "https://www.sparkenergy.com",
+   "pages": 60,
+   "labels_on_site": 0
+  },
+  "Summer Energy": {
+   "site": "https://www.summerenergy.com",
+   "pages": 6,
+   "labels_on_site": 0
+  },
+  "Tesla Electric": {
+   "site": "https://www.tesla.com/support/energy/tesla-electric",
+   "pages": 6,
+   "labels_on_site": 0
+  },
+  "Brilliant Energy": {
+   "site": "https://www.brilliantenergy.com",
+   "pages": 6,
+   "labels_on_site": 0
+  },
+  "Infuse Energy": {
+   "site": "https://www.infuseenergy.com",
+   "pages": 6,
+   "labels_on_site": 0
+  },
+  "Iberdrola Texas": {
+   "site": "https://www.iberdrolatexas.com",
+   "pages": 6,
+   "labels_on_site": 0
+  },
+  "Lone Star Energy": {
+   "site": "https://www.lonestarenergy.com",
+   "pages": 6,
+   "labels_on_site": 0
+  },
+  "Acacia Energy": {
+   "site": "https://acaciaenergy.com",
+   "pages": 59,
+   "labels_on_site": 1
+  },
+  "SFE ENERGY TEXAS INC": {
+   "site": "https://www.sfeenergy.com",
+   "pages": 13,
+   "labels_on_site": 2
+  },
+  "PRONTO POWER ": {
+   "site": "https://pronto-enroll.smartgridcis.net",
+   "pages": 1,
+   "labels_on_site": 0
+  },
+  "SMARTENERGY HOLDINGS LLC": {
+   "site": "https://texas.smartenergy.com",
+   "pages": 1,
+   "labels_on_site": 0
+  },
+  "TRUE POWER": {
+   "site": "https://portal.truepower.com",
+   "pages": 1,
+   "labels_on_site": 0
+  },
+  "Companion Energy": {
+   "site": "https://newenroll.companionenergy.com",
+   "pages": 1,
+   "labels_on_site": 0
+  },
+  "AE TEXAS": {
+   "site": "https://enroll.aetexasco.com",
+   "pages": 37,
+   "labels_on_site": 0
+  },
+  "Texans Choice Power LLC": {
+   "site": "https://signup.texanschoicepower.com",
+   "pages": 1,
+   "labels_on_site": 0
+  },
+  "NEC Co-op Energy": {
+   "site": "https://neccoopenergy.com",
+   "pages": 1,
+   "labels_on_site": 0
+  },
+  "CleanSky Energy": {
+   "site": "https://enroll.cleanskyenergy.com",
+   "pages": 60,
+   "labels_on_site": 0
+  },
+  "Ranchero Power": {
+   "site": "https://Rancheropower.com",
+   "pages": 6,
+   "labels_on_site": 0
+  },
+  "SOUTHERN FEDERAL POWER LLC": {
+   "site": "https://southernfederal.com",
+   "pages": 60,
+   "labels_on_site": 7
+  },
+  "REVOLUTION ENERGY LLC": {
+   "site": "https://www.joinarevolution.com",
+   "pages": 1,
+   "labels_on_site": 0
+  },
+  "VARSITY ENERGY LLC": {
+   "site": "https://signup.varsityenergy.com",
+   "pages": 3,
+   "labels_on_site": 0
+  },
+  "BRANCH ENERGY (TEXAS) LLC": {
+   "site": "https://signup.branchenergy.com",
+   "pages": 1,
+   "labels_on_site": 0
+  }
+ },
+ "errors": [],
+ "ptc": {
+  "method": "csv",
+  "rows": 903
+ },
+ "probe_attempts": 2820,
+ "probe_hits": {
+  "api.energytexas.com": 68,
+  "api.gotrhythm.com": 29,
+  "eflviewer.companionenergy.com": 240,
+  "eflviewer.frontierutilities.com": 240,
+  "signup.chariotenergy.com": 111,
+  "eflviewer.gexaenergy.com": 239,
+  "www.constellation.com": 35,
+  "api.goodcharlie.com": 56
+ },
+ "summary": {
+  "plans": 934,
+  "by_area": {
+   "aep_central": 169,
+   "aep_north": 170,
+   "centerpoint": 175,
+   "lubbock": 97,
+   "oncor": 154,
+   "tnmp": 169
+  },
+  "by_method": {
+   "parsed": 113,
+   "linear": 673,
+   "points": 148
+  },
+  "not_on_power_to_choose": 33,
+  "ptc_rows": 903
+ },
+ "finished": "2026-10-04T23:50:28.972401+00:00",
+ "minutes": 50.2
+}
