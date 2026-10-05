@@ -246,6 +246,14 @@ def main():
             best[k] = p
         else:
             cur["sources"] = sorted(set(cur["sources"]) | set(p["sources"]))
+    # Remember when each plan first appeared, so the site can show "first found <date>".
+    seen_before = {}
+    for old in load("plans.json", {}).get("plans", []):
+        k = (norm(old.get("provider"))[:12], norm(old.get("product")), old.get("tdu"))
+        if old.get("first_seen"):
+            seen_before[k] = old["first_seen"]
+    for k, p in best.items():
+        p["first_seen"] = seen_before.get(k) or today.isoformat()
     final = sorted(best.values(), key=lambda p: (p["tdu"], p["provider"] or "", p["product"] or ""))
     for i, p in enumerate(final):
         p["id"] = i
