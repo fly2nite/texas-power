@@ -100,6 +100,12 @@ footer h3{color:var(--ink);font-size:1rem;margin:20px 0 4px}
   .plan .meta{grid-column:2}
 }
 .grow{flex:1 1 240px}
+.src{grid-column:2/4;font-size:.84rem;color:var(--muted);display:flex;gap:8px;align-items:baseline;line-height:1.4}
+.src i{flex:none;width:9px;height:9px;border-radius:50%;background:var(--line);transform:translateY(1px)}
+.src.site i{background:var(--save)}
+.src.unlisted i,.src.seed i{background:var(--volt-deep)}
+.src.unlisted b,.src.seed b{color:var(--volt-deep)}
+@media (max-width:520px){.src{grid-column:2}}
 .grow input{width:100%}
 .checks{display:flex;flex-direction:column;gap:8px;margin:4px 0 14px}
 button.small{padding:5px 12px;font-size:.88rem}
@@ -182,12 +188,20 @@ button.small{padding:5px 12px;font-size:.88rem}
     <label class="f">Shortest term (months)<input type="number" id="fMin" value="12" min="1"></label>
     <label class="f">Longest term (months)<input type="number" id="fMax" value="36" min="1"></label>
     <label class="f">Highest cancel fee ($)<input type="number" id="fFee" min="0" step="25" placeholder="Any"></label>
+    <label class="f">Where it was found
+      <select id="fSrc">
+        <option value="">Anywhere</option>
+        <option value="ptc">Listed on Power to Choose</option>
+        <option value="site">Listed on a provider's website</option>
+        <option value="unlisted">Not listed anywhere we checked</option>
+        <option value="seed">Added from a link you supplied</option>
+      </select>
+    </label>
   </fieldset>
   <div class="checks">
     <label class="chk"><input type="checkbox" id="fPlain" checked> Simple plans only: no bill credits, usage fees, tiers or time-of-day pricing</label>
     <label class="chk"><input type="checkbox" id="fGreen"> 100% renewable only</label>
     <label class="chk"><input type="checkbox" id="fOne"> Best plan from each provider only</label>
-    <label class="chk"><input type="checkbox" id="fHidden"> Only plans not on Power to Choose</label>
   </div>
   <details id="provBox">
     <summary>Providers <span id="provCount" class="note"></span></summary>
@@ -386,7 +400,7 @@ function render(){
   if(!plans.length){$("resultMsg").textContent="The plan list isn't available yet.";return;}
   const H=withEV(), tot=H.flat().reduce((a,b)=>a+b,0);
   const tdu=$("tdu").value, tmin=+$("fMin").value||0, tmax=+$("fMax").value||999, plain=$("fPlain").checked;
-  const feeMax=$("fFee").value===""?null:+$("fFee").value, green=$("fGreen").checked, one=$("fOne").checked, hidden=$("fHidden").checked;
+  const feeMax=$("fFee").value===""?null:+$("fFee").value, green=$("fGreen").checked, one=$("fOne").checked, src=$("fSrc").value;
   const q=$("q").value.trim().toLowerCase(), sortBy=$("sortBy").value;
 
   // Every plan in this area, priced once
@@ -401,7 +415,7 @@ function render(){
     if(p.term&&(p.term<tmin||p.term>tmax)) return false;
     if(plain&&(p.gimmicks||[]).length) return false;
     if(green&&!(p.renewable>=100)) return false;
-    if(hidden&&(p.sources||[]).includes("ptc")) return false;
+    if(src&&sourceKind(p)!==src&&!(src==="site"&&(p.sources||[]).includes("site"))&&!(src==="ptc"&&(p.sources||[]).includes("ptc"))) return false;
     if(feeMax!==null&&(p.fee===null||p.fee>feeMax)) return false;
     if(q&&!((p.provider||"")+" "+(p.product||"")).toLowerCase().includes(q)) return false;
     return true;
@@ -419,7 +433,7 @@ function render(){
   };
   if(one){ const best={}; [...list].sort(byCost).forEach(p=>{ if(!best[p.provider]) best[p.provider]=p; }); list=Object.values(best); }
   list.sort(sorters[sortBy]);
-  const filtersOn=q||feeMax!==null||green||one||hidden||excluded.size||sortBy!=="annual"||tmin!==12||tmax!==36||!plain;
+  const filtersOn=q||feeMax!==null||green||one||src||excluded.size||sortBy!=="annual"||tmin!==12||tmax!==36||!plain;
   $("resetF").classList.toggle("hidden",!filtersOn);
   if(!list.length){
     $("resultMsg").textContent=area.length?`No plans match these filters. ${area.length} plans in your area are hidden.`:"No plans found for this delivery area.";
@@ -433,7 +447,6 @@ function render(){
     if(p.term) meta.push(p.term+"-month term");
     if(p.cancel_fee) meta.push("cancel fee "+esc(p.cancel_fee)+(p.fee!==null&&/month|remaining|multipl/i.test(p.cancel_fee)?` (up to $${Math.round(p.fee)})`:""));
     if(p.averages) meta.push("advertised "+p.averages[1]+"¢ at 1,000 kWh");
-    if(!(p.sources||[]).includes("ptc")) meta.push('<span class="tag">not on Power to Choose</span>');
     if(p.renewable>=100) meta.push('<span class="tag">100% renewable</span>');
     (p.gimmicks||[]).forEach(g=>meta.push(`<span class="flag">${esc(g)}</span>`));
     if(p.method==="points") meta.push('<span class="flag">estimate: confirm on the facts label</span>');
@@ -444,12 +457,40 @@ function render(){
     return `<div class="plan"><div class="rank">${i+1}</div>
       <div><div class="name">${esc(p.product)}</div><div class="prov">${esc(p.provider)}</div></div>
       <div class="cost"><b>${fmt$(p.annual)}</b><small>per year, ${(p.annual/tot*100).toFixed(1)}¢/kWh</small>${diff>=1?`<div class="diff">+${fmt$(diff)} vs cheapest shown</div>`:`<div class="tag" style="font-size:.85rem">cheapest shown</div>`}</div>
-      <div class="meta">${meta.join("")}</div></div>`;
+      <div class="meta">${meta.join("")}</div>
+      ${sourceLine(p)}</div>`;
   }).join("");
   $("more").classList.toggle("hidden",list.length<=shown);
   $("disclosure").textContent=Object.keys(REFERRAL_LINKS).length
     ?"Plans are ranked only by the sort you choose. Some sign-up links pay this site a referral fee; that never changes the order."
     :"Plans are ranked only by the sort you choose.";
+}
+/* Where a plan came from: the most public place it was found wins the label. */
+function sourceKind(p){
+  const s=p.sources||[];
+  if(s.includes("ptc")) return "ptc";
+  if(s.includes("site")) return "site";
+  if(s.includes("seed")) return "seed";
+  return "unlisted";
+}
+const fmtDate=d=>{ if(!d) return ""; const t=new Date(d+"T12:00:00"); return isNaN(t)?d:t.toLocaleDateString(undefined,{month:"short",day:"numeric",year:"numeric"}); };
+function sourceLine(p){
+  const s=p.sources||[], kind=sourceKind(p), where=[];
+  if(s.includes("ptc")) where.push("Power to Choose");
+  if(s.includes("site")) where.push("the provider's website");
+  let text;
+  if(kind==="ptc"||kind==="site") text=`<b>Listed on</b> ${where.join(" and ")}`;
+  else if(kind==="seed") text=`<b>Added from a link you supplied.</b> Not listed on Power to Choose or the provider's website`;
+  else text=`<b>Not listed anywhere we checked.</b> Found by searching the provider's facts-label addresses`;
+  let how;
+  if(p.method==="parsed") how="priced from every charge on its facts label";
+  else if(p.method==="linear") how=p.efl_date?"priced from its facts label's published prices":"priced from Power to Choose's published prices";
+  else how="estimated from published prices";
+  const extra=[how];
+  if(p.efl_date) extra.push("label dated "+fmtDate(p.efl_date));
+  if(p.first_seen) extra.push("first found "+fmtDate(p.first_seen));
+  const rest=extra.join(" · ");
+  return `<div class="src ${kind}"><i aria-hidden="true"></i><span>${text}. ${rest.charAt(0).toUpperCase()+rest.slice(1)}.</span></div>`;
 }
 function drawProviders(pass){
   const by={};
@@ -474,13 +515,13 @@ $("useManual").onclick=useManual;
   d.addEventListener("drop",e=>{e.preventDefault();d.classList.remove("over");go(e.dataTransfer.files[0]);});
 })();
 ["tdu","evMiles","evStart","evEnd"].forEach(id=>$(id).addEventListener("change",()=>{if(usage)showUsage();}));
-["fMin","fMax","fPlain","fFee","fGreen","fOne","fHidden","sortBy"].forEach(id=>$(id).addEventListener("change",()=>{shown=25;render();}));
+["fMin","fMax","fPlain","fFee","fGreen","fOne","fSrc","sortBy"].forEach(id=>$(id).addEventListener("change",()=>{shown=25;render();}));
 $("q").addEventListener("input",()=>{shown=25;render();});
 $("provList").addEventListener("change",e=>{const n=e.target.dataset.prov; if(n===undefined) return; e.target.checked?excluded.delete(n):excluded.add(n); shown=25; render();});
 $("provAll").onclick=()=>{excluded.clear();shown=25;render();};
 $("provNone").onclick=()=>{document.querySelectorAll("#provList input").forEach(i=>excluded.add(i.dataset.prov));shown=25;render();};
 $("resetF").onclick=()=>{excluded.clear();$("q").value="";$("fFee").value="";$("fMin").value=12;$("fMax").value=36;
-  $("fPlain").checked=true;["fGreen","fOne","fHidden"].forEach(id=>$(id).checked=false);$("sortBy").value="annual";shown=25;render();};
+  $("fPlain").checked=true;["fGreen","fOne"].forEach(id=>$(id).checked=false);$("fSrc").value="";$("sortBy").value="annual";shown=25;render();};
 $("more").onclick=()=>{shown+=25;render();};
 </script>
 </body>
