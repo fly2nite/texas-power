@@ -23,8 +23,16 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 CACHE_DAYS = 3          # re-read a label at most this often
 PROBE_MAX_AGE = 150     # labels found only by probing must be at most this many days old
-TIME_LIMIT = 50 * 60    # stop discovering new things after 50 minutes
+TIME_LIMIT = 100 * 60   # stop starting new work after 100 minutes, then save what we have
 START = time.time()
+
+
+def log(msg):
+    print(f"[{(time.time() - START) / 60:5.1f} min] {msg}", flush=True)
+
+
+def out_of_time():
+    return time.time() - START > TIME_LIMIT
 
 
 def load(name, default):
@@ -61,7 +69,9 @@ def main():
         return result
 
     # 1. Power to Choose (one source among several)
+    log("Reading Power to Choose...")
     ptc_rows = ptc.fetch_plans(report)
+    log(f"Power to Choose: {len(ptc_rows)} plans ({report.get('ptc', {}).get('method', 'failed')})")
     candidates = {}  # efl url -> info
     for r in ptc_rows:
         if r["efl"]:
@@ -89,8 +99,12 @@ def main():
             report["errors"].append(f"crawl {p['site']}: {e}")
             return p, [], 0
 
+    log(f"Searching {len(sites)} provider websites...")
+    done_sites = 0
     with ThreadPoolExecutor(10) as ex:
         for p, efls, pages in ex.map(crawl, sites.values()):
+            done_sites += 1
+            log(f"  {done_sites}/{len(sites)} {p['site']}: {pages} pages, {len(efls)} labels")
             report["providers"][p["name"]] = {"site": p["site"], "pages": pages, "labels_on_site": len(efls)}
             for u in efls:
                 candidates.setdefault(u, {"sources": set(), "ptc": None, "site": p["site"]})
@@ -99,19 +113,32 @@ def main():
 
     # 3. Read every label found so far
     urls = list(candidates)
+    log(f"Reading {len(urls)} facts labels...")
+    results, counter = {}, [0]
+
+    def read_one(u):
+        r = None if out_of_time() else _safe(parse_url, u, report)
+        counter[0] += 1
+        if counter[0] % 50 == 0:
+            log(f"  read {counter[0]}/{len(urls)} labels")
+        return u, r
+
     with ThreadPoolExecutor(12) as ex:
-        results = dict(zip(urls, ex.map(lambda u: _safe(parse_url, u, report), urls)))
+        for u, r in ex.map(read_one, urls):
+            results[u] = r
+    log(f"Labels read: {sum(1 for r in results.values() if r)} usable")
 
     # 4. Probe nearby label addresses for plans nobody lists
     good = [u for u, r in results.items() if r]
     probes = probe_candidates(good) if time.time() - START < TIME_LIMIT * 0.6 else []
     probes = [(k, u) for k, u in probes if u not in candidates]
     report["probe_attempts"] = len(probes)
+    log(f"Probing {len(probes)} nearby label addresses for unlisted plans...")
     hits_by_tpl = {}
 
     def probe(item):
         key, u = item
-        if time.time() - START > TIME_LIMIT:
+        if out_of_time():
             return u, None
         return u, _safe(parse_url, u, report)
 
@@ -122,6 +149,7 @@ def main():
                 candidates[u] = {"sources": {"probe"}, "ptc": None}
                 hits_by_tpl[urlparse(u).netloc] = hits_by_tpl.get(urlparse(u).netloc, 0) + 1
     report["probe_hits"] = hits_by_tpl
+    log(f"Probing found {sum(hits_by_tpl.values())} more labels")
 
     # 5. Build plan records
     plans = []
@@ -206,7 +234,8 @@ def main():
         report["errors"].append("No plans found this run; kept yesterday's list.")
     save("efl_cache.json", cache)
     save("crawl_report.json", report)
-    print(json.dumps(summary, indent=1))
+    log("Saved. Summary:")
+    print(json.dumps(summary, indent=1), flush=True)
 
 
 def _safe(fn, u, report):

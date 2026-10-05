@@ -69,6 +69,9 @@ def get(url, gap=1.0, retries=2):
 
 
 def pdf_text(data):
+    import logging
+    logging.getLogger("pdfminer").setLevel(logging.ERROR)
+    logging.getLogger("pypdf").setLevel(logging.ERROR)
     try:
         import pdfplumber
         with pdfplumber.open(io.BytesIO(data)) as pdf:
@@ -100,8 +103,10 @@ def document_text(url):
     if not res or res[3] >= 400 or not res[1]:
         return None, res[3] if res else None
     ctype, data, final, status = res
-    if data[:5] == b"%PDF-" or "pdf" in ctype:
+    if data[:5] == b"%PDF-":
         return pdf_text(data), status
+    if data.lstrip()[:1] in (b"{", b"["):
+        return None, status  # an error message in JSON, not a label
     if "html" in ctype or data.lstrip()[:1] == b"<":
         text, links = html_text_and_links(data, final)
         if "facts label" in text.lower() and "average" in text.lower():
