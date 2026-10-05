@@ -1,5 +1,5 @@
 {
- "started": "2026-10-05T02:22:07.858113+00:00",
+ "started": "2026-10-05T11:00:53.358038+00:00",
  "providers": {
   "TXU Energy": {
    "site": "https://www.txu.com",
@@ -206,15 +206,15 @@
    "pages": 6,
    "labels_on_site": 0
   },
-  "SFE ENERGY TEXAS INC": {
-   "site": "https://www.sfeenergy.com",
-   "pages": 13,
-   "labels_on_site": 2
-  },
   "PRONTO POWER ": {
    "site": "https://pronto-enroll.smartgridcis.net",
    "pages": 1,
    "labels_on_site": 0
+  },
+  "SFE ENERGY TEXAS INC": {
+   "site": "https://www.sfeenergy.com",
+   "pages": 13,
+   "labels_on_site": 2
   },
   "SMARTENERGY HOLDINGS LLC": {
    "site": "https://texas.smartenergy.com",
@@ -270,38 +270,33 @@
    "site": "https://signup.varsityenergy.com",
    "pages": 3,
    "labels_on_site": 0
-  },
-  "BRANCH ENERGY (TEXAS) LLC": {
-   "site": "https://signup.branchenergy.com",
-   "pages": 1,
-   "labels_on_site": 0
   }
  },
  "errors": [],
  "ptc": {
   "method": "csv",
-  "rows": 903
+  "rows": 901
  },
  "probe_attempts": 0,
  "probe_hits": {},
  "summary": {
-  "plans": 1020,
+  "plans": 1018,
   "by_area": {
    "aep_central": 189,
    "aep_north": 186,
-   "centerpoint": 191,
+   "centerpoint": 190,
    "lubbock": 99,
-   "oncor": 169,
+   "oncor": 168,
    "tnmp": 186
   },
   "by_method": {
-   "linear": 689,
+   "linear": 687,
    "points": 183,
    "parsed": 148
   },
   "not_on_power_to_choose": 119,
-  "ptc_rows": 903
+  "ptc_rows": 901
  },
- "finished": "2026-10-05T02:49:15.390329+00:00",
- "minutes": 27.1
+ "finished": "2026-10-05T11:15:13.211689+00:00",
+ "minutes": 14.3
 }
