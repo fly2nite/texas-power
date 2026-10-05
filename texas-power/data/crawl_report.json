@@ -1,5 +1,5 @@
 {
- "started": "2026-10-04T23:00:17.463671+00:00",
+ "started": "2026-10-05T02:22:07.858113+00:00",
  "providers": {
   "TXU Energy": {
    "site": "https://www.txu.com",
@@ -93,8 +93,8 @@
   },
   "Amigo Energy": {
    "site": "https://www.amigoenergy.com",
-   "pages": 60,
-   "labels_on_site": 13
+   "pages": 6,
+   "labels_on_site": 0
   },
   "TriEagle Energy": {
    "site": "https://www.trieagleenergy.com",
@@ -123,8 +123,8 @@
   },
   "Tara Energy": {
    "site": "https://www.taraenergy.com",
-   "pages": 60,
-   "labels_on_site": 7
+   "pages": 6,
+   "labels_on_site": 0
   },
   "Payless Power": {
    "site": "https://www.paylesspower.com",
@@ -188,8 +188,8 @@
   },
   "Infuse Energy": {
    "site": "https://www.infuseenergy.com",
-   "pages": 6,
-   "labels_on_site": 0
+   "pages": 15,
+   "labels_on_site": 5
   },
   "Iberdrola Texas": {
    "site": "https://www.iberdrolatexas.com",
@@ -203,8 +203,8 @@
   },
   "Acacia Energy": {
    "site": "https://acaciaenergy.com",
-   "pages": 59,
-   "labels_on_site": 1
+   "pages": 6,
+   "labels_on_site": 0
   },
   "SFE ENERGY TEXAS INC": {
    "site": "https://www.sfeenergy.com",
@@ -263,7 +263,7 @@
   },
   "REVOLUTION ENERGY LLC": {
    "site": "https://www.joinarevolution.com",
-   "pages": 1,
+   "pages": 2,
    "labels_on_site": 0
   },
   "VARSITY ENERGY LLC": {
@@ -282,35 +282,26 @@
   "method": "csv",
   "rows": 903
  },
- "probe_attempts": 2820,
- "probe_hits": {
-  "api.energytexas.com": 68,
-  "api.gotrhythm.com": 29,
-  "eflviewer.companionenergy.com": 240,
-  "eflviewer.frontierutilities.com": 240,
-  "signup.chariotenergy.com": 111,
-  "eflviewer.gexaenergy.com": 239,
-  "www.constellation.com": 35,
-  "api.goodcharlie.com": 56
- },
+ "probe_attempts": 0,
+ "probe_hits": {},
  "summary": {
-  "plans": 934,
+  "plans": 1020,
   "by_area": {
-   "aep_central": 169,
-   "aep_north": 170,
-   "centerpoint": 175,
-   "lubbock": 97,
-   "oncor": 154,
-   "tnmp": 169
+   "aep_central": 189,
+   "aep_north": 186,
+   "centerpoint": 191,
+   "lubbock": 99,
+   "oncor": 169,
+   "tnmp": 186
   },
   "by_method": {
-   "parsed": 113,
-   "linear": 673,
-   "points": 148
+   "linear": 689,
+   "points": 183,
+   "parsed": 148
   },
-  "not_on_power_to_choose": 33,
+  "not_on_power_to_choose": 119,
   "ptc_rows": 903
  },
- "finished": "2026-10-04T23:50:28.972401+00:00",
- "minutes": 50.2
+ "finished": "2026-10-05T02:49:15.390329+00:00",
+ "minutes": 27.1
 }
