@@ -1,0 +1,4 @@
+# Facts label links for plans the crawler can't find on its own,
+# such as plans sold only through brokers. One link per line.
+# The crawler reads each one daily and also searches nearby label numbers
+# for related plans. Lines starting with # are ignored.

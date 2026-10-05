@@ -92,6 +92,13 @@ def main():
         name = max(v, key=v.get)
         host_name[h] = name.title() if name.isupper() else name
 
+    # 1b. Facts label links pasted into seed_efls.txt (e.g. broker-only plans)
+    seeds = load_seeds()
+    for u in seeds:
+        candidates.setdefault(u, {"sources": set(), "ptc": None})
+        candidates[u]["sources"].add("seed")
+    log(f"Seed labels from seed_efls.txt: {len(seeds)}")
+
     # 2. Provider websites: the registry plus every provider site seen on Power to Choose
     reg = load_registry()
     sites = {_domain(p["site"]): p for p in reg}
@@ -292,6 +299,15 @@ def _safe(fn, u, report):
         if len(report["errors"]) < 200:
             report["errors"].append(f"{u}: {e}")
         return None
+
+
+def load_seeds():
+    path = os.path.join(os.path.dirname(__file__), "seed_efls.txt")
+    try:
+        with open(path) as f:
+            return [l.strip() for l in f if l.strip().startswith("http")]
+    except FileNotFoundError:
+        return []
 
 
 def load_registry():
