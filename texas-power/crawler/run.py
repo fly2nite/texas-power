@@ -23,6 +23,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data")
 CACHE_DAYS = 3          # re-read a label at most this often
 PROBE_MAX_AGE = 150     # labels found only by probing must be at most this many days old
+PROBE_WEEKDAY = 6        # search nearby label numbers on Sundays only (Mon=0 ... Sun=6)
 TIME_LIMIT = 100 * 60   # stop starting new work after 100 minutes, then save what we have
 START = time.time()
 
@@ -56,6 +57,7 @@ def norm(s):
 def main():
     report = {"started": datetime.now(timezone.utc).isoformat(), "providers": {}, "errors": []}
     cache = load("efl_cache.json", {})
+    first_run = not cache
     today = date.today()
 
     def parse_url(url):
@@ -98,6 +100,14 @@ def main():
         candidates.setdefault(u, {"sources": set(), "ptc": None})
         candidates[u]["sources"].add("seed")
     log(f"Seed labels from seed_efls.txt: {len(seeds)}")
+
+    # 1c. Plans found by earlier probing stay on the list between weekly probes
+    carried = 0
+    for u, ent in cache.items():
+        if ent.get("result") and u not in candidates:
+            candidates[u] = {"sources": {"probe"}, "ptc": None}
+            carried += 1
+    log(f"Previously found labels carried forward: {carried}")
 
     # 2. Provider websites: the registry plus every provider site seen on Power to Choose
     reg = load_registry()
@@ -150,7 +160,10 @@ def main():
 
     # 4. Probe nearby label addresses for plans nobody lists
     good = [u for u, r in results.items() if r]
-    probes = probe_candidates(good) if time.time() - START < TIME_LIMIT * 0.6 else []
+    probe_day = today.weekday() == PROBE_WEEKDAY or os.environ.get("PROBE") == "1" or first_run
+    probes = probe_candidates(good, radius=15, per_template_cap=80) if probe_day and time.time() - START < TIME_LIMIT * 0.6 else []
+    if not probe_day:
+        log("Not a probe day; skipping the nearby-number search (runs Sundays)")
     probes = interleave([(k, u) for k, u in probes if u not in candidates], key=lambda t: t[1])
     report["probe_attempts"] = len(probes)
     log(f"Probing {len(probes)} nearby label addresses for unlisted plans...")
