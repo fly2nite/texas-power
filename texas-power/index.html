@@ -154,11 +154,11 @@ footer h3{color:var(--ink);font-size:1rem;margin:20px 0 4px}
 <section id="s2">
   <h2><span class="step">2</span>Cheapest for you</h2>
   <fieldset>
-    <label class="f">Shortest term (months)<input type="number" id="fMin" value="6" min="1"></label>
+    <label class="f">Shortest term (months)<input type="number" id="fMin" value="12" min="1"></label>
     <label class="f">Longest term (months)<input type="number" id="fMax" value="36" min="1"></label>
     <label class="chk"><input type="checkbox" id="fPlain" checked> Simple plans only: no bill credits, usage fees, tiers or time-of-day pricing</label>
   </fieldset>
-  <p class="note">Only fixed-rate plans that aren't prepaid are shown. Uncheck simple plans only to include free-nights and credit plans, each priced against your actual hours and months.</p>
+  <p class="note">Only fixed-rate plans that aren't prepaid are shown. Contracts shorter than 12 months are hidden by default, because their price only holds for part of the year this compares. Uncheck simple plans only to include free-nights and credit plans, each priced against your actual hours and months.</p>
   <div id="resultMsg" class="note">Upload your usage to see your ranking.</div>
   <div class="results" id="results"></div>
   <button type="button" class="ghost hidden" id="more">Show more plans</button>
