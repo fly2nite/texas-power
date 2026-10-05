@@ -114,7 +114,7 @@ def main():
 
     log(f"Searching {len(sites)} provider websites...")
     done_sites = 0
-    with ThreadPoolExecutor(10) as ex:
+    with ThreadPoolExecutor(20) as ex:
         for p, efls, pages in ex.map(crawl, sites.values()):
             done_sites += 1
             log(f"  {done_sites}/{len(sites)} {p['site']}: {pages} pages, {len(efls)} labels")
@@ -125,7 +125,7 @@ def main():
                 candidates[u].setdefault("site", p["site"])
 
     # 3. Read every label found so far
-    urls = list(candidates)
+    urls = interleave(list(candidates))
     log(f"Reading {len(urls)} facts labels...")
     results, counter = {}, [0]
 
@@ -136,7 +136,7 @@ def main():
             log(f"  read {counter[0]}/{len(urls)} labels")
         return u, r
 
-    with ThreadPoolExecutor(12) as ex:
+    with ThreadPoolExecutor(24) as ex:
         for u, r in ex.map(read_one, urls):
             results[u] = r
     log(f"Labels read: {sum(1 for r in results.values() if r)} usable")
@@ -144,7 +144,7 @@ def main():
     # 4. Probe nearby label addresses for plans nobody lists
     good = [u for u, r in results.items() if r]
     probes = probe_candidates(good) if time.time() - START < TIME_LIMIT * 0.6 else []
-    probes = [(k, u) for k, u in probes if u not in candidates]
+    probes = interleave([(k, u) for k, u in probes if u not in candidates], key=lambda t: t[1])
     report["probe_attempts"] = len(probes)
     log(f"Probing {len(probes)} nearby label addresses for unlisted plans...")
     hits_by_tpl = {}
@@ -155,7 +155,7 @@ def main():
             return u, None
         return u, _safe(parse_url, u, report)
 
-    with ThreadPoolExecutor(12) as ex:
+    with ThreadPoolExecutor(24) as ex:
         for u, r in ex.map(probe, probes):
             if r:
                 results[u] = r
@@ -254,6 +254,24 @@ def main():
     save("crawl_report.json", report)
     log("Saved. Summary:")
     print(json.dumps(summary, indent=1), flush=True)
+
+
+def interleave(urls, key=lambda u: u):
+    """Order work round-robin across websites, so the workers spread out instead of
+    all queuing behind one site's one-request-per-second limit."""
+    from collections import OrderedDict
+    groups = OrderedDict()
+    for item in urls:
+        groups.setdefault(urlparse(key(item)).netloc, []).append(item)
+    out, lists = [], list(groups.values())
+    i = 0
+    while any(lists):
+        for l in lists:
+            if i < len(l):
+                out.append(l[i])
+        i += 1
+        lists = [l for l in lists if len(l) > i]
+    return out
 
 
 def clean_product(plan):
