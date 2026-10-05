@@ -60,11 +60,11 @@ def main():
 
     def parse_url(url):
         ent = cache.get(url)
-        if ent and (today - date.fromisoformat(ent["read"])).days < CACHE_DAYS:
+        if ent and ent.get("v") == efl_parser.PARSER_VERSION and (today - date.fromisoformat(ent["read"])).days < CACHE_DAYS:
             return ent["result"]
         text, status = document_text(url)
         result = efl_parser.parse(text) if text else None
-        cache[url] = {"read": today.isoformat(), "status": status, "result": result,
+        cache[url] = {"v": efl_parser.PARSER_VERSION, "read": today.isoformat(), "status": status, "result": result,
                       "hash": hashlib.md5((text or "").encode()).hexdigest()[:10]}
         return result
 
@@ -78,6 +78,19 @@ def main():
             candidates.setdefault(r["efl"], {"sources": set(), "ptc": None})
             candidates[r["efl"]]["sources"].add("ptc")
             candidates[r["efl"]]["ptc"] = r
+
+    # Learn each label host's provider name from Power to Choose, so plans found elsewhere
+    # on the same host get the same clean name.
+    host_names = {}
+    for r_ in ptc_rows:
+        if r_["efl"] and r_["provider"]:
+            h = urlparse(r_["efl"]).netloc
+            host_names.setdefault(h, {}).setdefault(r_["provider"], 0)
+            host_names[h][r_["provider"]] += 1
+    host_name = {}
+    for h, v in host_names.items():
+        name = max(v, key=v.get)
+        host_name[h] = name.title() if name.isupper() else name
 
     # 2. Provider websites: the registry plus every provider site seen on Power to Choose
     reg = load_registry()
@@ -177,6 +190,10 @@ def main():
                     plan["gimmicks"].append("time of use")
             else:
                 plan["enroll"] = info.get("site") or f"https://{urlparse(url).netloc}"
+                known = host_name.get(urlparse(url).netloc)
+                if known:
+                    plan["provider"] = known
+            plan["product"] = clean_product(plan)
             plans.append(plan)
         elif row and row["averages"]:
             g = []
@@ -186,6 +203,7 @@ def main():
             m = efl_parser.linear_fit(pts) if not g else None
             if row["provider"] and row["provider"].isupper():
                 row["provider"] = row["provider"].title()
+            row["product"] = clean_product({**row, "model": {}})
             plans.append({**{k: row[k] for k in ("provider", "product", "tdu", "type", "term", "prepaid", "renewable",
                                                  "cancel_fee", "enroll", "new_customers_only")},
                           "efl": url, "sources": ["ptc"], "averages": pts, "efl_date": None,
@@ -236,6 +254,17 @@ def main():
     save("crawl_report.json", report)
     log("Saved. Summary:")
     print(json.dumps(summary, indent=1), flush=True)
+
+
+def clean_product(plan):
+    """Replace label text that isn't really a plan name with a plain description."""
+    name = (plan.get("product") or "").strip()
+    bad = (not name or len(name) > 60 or norm(name) == norm(plan.get("provider"))
+           or re.search(r"disclosure|price|average|header|component|facts label", name, re.I))
+    if not bad:
+        return name
+    kind = "time-of-use" if plan.get("model", {}).get("offpeak") else (plan.get("type") or "fixed")
+    return f"{plan['term']}-month {kind} plan" if plan.get("term") else f"{kind.capitalize()} plan"
 
 
 def _safe(fn, u, report):

@@ -16,6 +16,7 @@ Three outcomes, best first:
 import re
 from datetime import datetime
 
+PARSER_VERSION = 2  # bump to force every cached label to be read again
 N = r"(\d{1,3}(?:,\d{3})+(?:\.\d+)?|\d+(?:\.\d+)?)"
 USAGE_POINTS = (500, 1000, 2000)
 
@@ -263,7 +264,7 @@ def parse_meta(text, c):
         low = l.lower()
         if "facts label" in low or "electricity" == low:
             continue
-        if re.search(r"service area|delivery|^date|\d{1,2}/\d{1,2}/\d{2,4}|\d{1,2}-[a-z]{3}-\d{4}|^[a-z]+ \d{1,2}, \d{4}$|^price|average", low):
+        if re.search(r"service area|delivery|^date|\d{1,2}/\d{1,2}/\d{2,4}|\d{1,2}-[a-z]{3}-\d{4}|^[a-z]+ \d{1,2}, \d{4}$|^price|average|header|disclosure|component|electricity price|^page \d", low):
             continue
         if any(re.fullmatch(r"\s*(" + p + r")[\s\w]*", low) for _, p in TDU_PATTERNS) and len(low) < 25:
             continue
