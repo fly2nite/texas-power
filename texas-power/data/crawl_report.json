@@ -1,5 +1,5 @@
 {
- "started": "2026-10-05T11:00:53.358038+00:00",
+ "started": "2026-10-16T11:01:47.217506+00:00",
  "providers": {
   "TXU Energy": {
    "site": "https://www.txu.com",
@@ -23,8 +23,8 @@
   },
   "Just Energy": {
    "site": "https://justenergy.com",
-   "pages": 60,
-   "labels_on_site": 1
+   "pages": 6,
+   "labels_on_site": 0
   },
   "Constellation": {
    "site": "https://www.constellation.com",
@@ -43,7 +43,7 @@
   },
   "Frontier Utilities": {
    "site": "https://www.frontierutilities.com",
-   "pages": 10,
+   "pages": 20,
    "labels_on_site": 0
   },
   "4Change Energy": {
@@ -53,7 +53,7 @@
   },
   "Discount Power": {
    "site": "https://www.discountpowertx.com",
-   "pages": 40,
+   "pages": 38,
    "labels_on_site": 0
   },
   "Rhythm": {
@@ -104,7 +104,7 @@
   "APG&E": {
    "site": "https://www.apge.com",
    "pages": 60,
-   "labels_on_site": 0
+   "labels_on_site": 3
   },
   "Express Energy": {
    "site": "https://shopping.myexpressenergy.com",
@@ -154,7 +154,7 @@
   "Engie Resources": {
    "site": "https://www.engieresources.com",
    "pages": 60,
-   "labels_on_site": 1
+   "labels_on_site": 0
   },
   "Shell Energy": {
    "site": "https://www.shellenergy.com",
@@ -221,14 +221,19 @@
    "pages": 1,
    "labels_on_site": 0
   },
+  "Companion Energy": {
+   "site": "https://newenroll.companionenergy.com",
+   "pages": 1,
+   "labels_on_site": 0
+  },
   "TRUE POWER": {
    "site": "https://portal.truepower.com",
    "pages": 1,
    "labels_on_site": 0
   },
-  "Companion Energy": {
-   "site": "https://newenroll.companionenergy.com",
-   "pages": 1,
+  "CleanSky Energy": {
+   "site": "https://enroll.cleanskyenergy.com",
+   "pages": 60,
    "labels_on_site": 0
   },
   "AE TEXAS": {
@@ -241,14 +246,19 @@
    "pages": 1,
    "labels_on_site": 0
   },
-  "NEC Co-op Energy": {
-   "site": "https://neccoopenergy.com",
+  "Budget Power": {
+   "site": "https://signup.budgetpowertx.com",
+   "pages": 4,
+   "labels_on_site": 0
+  },
+  "Abundance Energy": {
+   "site": "https://join.abundanceenergy.com",
    "pages": 1,
    "labels_on_site": 0
   },
-  "CleanSky Energy": {
-   "site": "https://enroll.cleanskyenergy.com",
-   "pages": 60,
+  "NEC Co-op Energy": {
+   "site": "https://neccoopenergy.com",
+   "pages": 1,
    "labels_on_site": 0
   },
   "Ranchero Power": {
@@ -259,7 +269,7 @@
   "SOUTHERN FEDERAL POWER LLC": {
    "site": "https://southernfederal.com",
    "pages": 60,
-   "labels_on_site": 7
+   "labels_on_site": 6
   },
   "REVOLUTION ENERGY LLC": {
    "site": "https://www.joinarevolution.com",
@@ -275,28 +285,28 @@
  "errors": [],
  "ptc": {
   "method": "csv",
-  "rows": 901
+  "rows": 954
  },
  "probe_attempts": 0,
  "probe_hits": {},
  "summary": {
-  "plans": 1018,
+  "plans": 1113,
   "by_area": {
-   "aep_central": 189,
-   "aep_north": 186,
-   "centerpoint": 190,
-   "lubbock": 99,
-   "oncor": 168,
-   "tnmp": 186
+   "aep_central": 201,
+   "aep_north": 193,
+   "centerpoint": 208,
+   "lubbock": 106,
+   "oncor": 205,
+   "tnmp": 200
   },
   "by_method": {
-   "linear": 687,
-   "points": 183,
-   "parsed": 148
+   "linear": 792,
+   "points": 171,
+   "parsed": 150
   },
-  "not_on_power_to_choose": 119,
-  "ptc_rows": 901
+  "not_on_power_to_choose": 161,
+  "ptc_rows": 954
  },
- "finished": "2026-10-05T11:15:13.211689+00:00",
- "minutes": 14.3
+ "finished": "2026-10-16T11:31:08.387369+00:00",
+ "minutes": 29.4
 }
