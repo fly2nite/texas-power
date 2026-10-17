@@ -1,5 +1,5 @@
 {
- "started": "2026-10-16T11:01:47.217506+00:00",
+ "started": "2026-10-17T11:01:04.563051+00:00",
  "providers": {
   "TXU Energy": {
    "site": "https://www.txu.com",
@@ -53,7 +53,7 @@
   },
   "Discount Power": {
    "site": "https://www.discountpowertx.com",
-   "pages": 38,
+   "pages": 39,
    "labels_on_site": 0
   },
   "Rhythm": {
@@ -221,6 +221,11 @@
    "pages": 1,
    "labels_on_site": 0
   },
+  "Budget Power": {
+   "site": "https://signup.budgetpowertx.com",
+   "pages": 4,
+   "labels_on_site": 0
+  },
   "Companion Energy": {
    "site": "https://newenroll.companionenergy.com",
    "pages": 1,
@@ -236,6 +241,11 @@
    "pages": 60,
    "labels_on_site": 0
   },
+  "Abundance Energy": {
+   "site": "https://join.abundanceenergy.com",
+   "pages": 1,
+   "labels_on_site": 0
+  },
   "AE TEXAS": {
    "site": "https://enroll.aetexasco.com",
    "pages": 37,
@@ -243,16 +253,6 @@
   },
   "Texans Choice Power LLC": {
    "site": "https://signup.texanschoicepower.com",
-   "pages": 1,
-   "labels_on_site": 0
-  },
-  "Budget Power": {
-   "site": "https://signup.budgetpowertx.com",
-   "pages": 4,
-   "labels_on_site": 0
-  },
-  "Abundance Energy": {
-   "site": "https://join.abundanceenergy.com",
    "pages": 1,
    "labels_on_site": 0
   },
@@ -285,28 +285,28 @@
  "errors": [],
  "ptc": {
   "method": "csv",
-  "rows": 954
+  "rows": 932
  },
  "probe_attempts": 0,
  "probe_hits": {},
  "summary": {
-  "plans": 1113,
+  "plans": 1104,
   "by_area": {
-   "aep_central": 201,
-   "aep_north": 193,
-   "centerpoint": 208,
-   "lubbock": 106,
-   "oncor": 205,
-   "tnmp": 200
+   "aep_central": 199,
+   "aep_north": 191,
+   "centerpoint": 206,
+   "lubbock": 107,
+   "oncor": 203,
+   "tnmp": 198
   },
   "by_method": {
-   "linear": 792,
-   "points": 171,
+   "linear": 787,
+   "points": 167,
    "parsed": 150
   },
-  "not_on_power_to_choose": 161,
-  "ptc_rows": 954
+  "not_on_power_to_choose": 174,
+  "ptc_rows": 932
  },
- "finished": "2026-10-16T11:31:08.387369+00:00",
- "minutes": 29.4
+ "finished": "2026-10-17T11:15:26.851601+00:00",
+ "minutes": 14.4
 }
