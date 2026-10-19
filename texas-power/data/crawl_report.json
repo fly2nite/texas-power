@@ -1,5 +1,5 @@
 {
- "started": "2026-10-18T11:01:16.582530+00:00",
+ "started": "2026-10-19T11:01:57.820880+00:00",
  "providers": {
   "TXU Energy": {
    "site": "https://www.txu.com",
@@ -163,8 +163,8 @@
   },
   "XOOM Energy": {
    "site": "https://xoomenergy.com",
-   "pages": 6,
-   "labels_on_site": 0
+   "pages": 60,
+   "labels_on_site": 2
   },
   "Spark Energy": {
    "site": "https://www.sparkenergy.com",
@@ -285,39 +285,28 @@
  "errors": [],
  "ptc": {
   "method": "csv",
-  "rows": 932
+  "rows": 933
  },
- "probe_attempts": 1884,
- "probe_hits": {
-  "signup.budgetpowertx.com": 74,
-  "eflviewer.companionenergy.com": 160,
-  "eflviewer.frontierutilities.com": 160,
-  "signup.chariotenergy.com": 66,
-  "eflviewer.gexaenergy.com": 160,
-  "signup.varsityenergy.com": 74,
-  "api.goodcharlie.com": 76,
-  "api.energytexas.com": 29,
-  "api.gotrhythm.com": 12,
-  "www.constellation.com": 1
- },
+ "probe_attempts": 0,
+ "probe_hits": {},
  "summary": {
-  "plans": 1190,
+  "plans": 1188,
   "by_area": {
-   "aep_central": 207,
+   "aep_central": 206,
    "aep_north": 199,
    "centerpoint": 231,
    "lubbock": 110,
-   "oncor": 231,
+   "oncor": 230,
    "tnmp": 212
   },
   "by_method": {
-   "linear": 828,
-   "points": 185,
+   "linear": 825,
+   "points": 186,
    "parsed": 177
   },
-  "not_on_power_to_choose": 260,
-  "ptc_rows": 932
+  "not_on_power_to_choose": 257,
+  "ptc_rows": 933
  },
- "finished": "2026-10-18T11:31:39.620085+00:00",
- "minutes": 30.4
+ "finished": "2026-10-19T11:30:10.689382+00:00",
+ "minutes": 28.2
 }
