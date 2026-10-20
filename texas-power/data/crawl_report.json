@@ -1,5 +1,5 @@
 {
- "started": "2026-10-19T11:01:57.820880+00:00",
+ "started": "2026-10-20T11:01:16.792446+00:00",
  "providers": {
   "TXU Energy": {
    "site": "https://www.txu.com",
@@ -129,7 +129,7 @@
   "Payless Power": {
    "site": "https://www.paylesspower.com",
    "pages": 60,
-   "labels_on_site": 0
+   "labels_on_site": 1
   },
   "Veteran Energy": {
    "site": "https://shopping.veteranenergyusa.com",
@@ -206,15 +206,15 @@
    "pages": 6,
    "labels_on_site": 0
   },
-  "PRONTO POWER ": {
-   "site": "https://pronto-enroll.smartgridcis.net",
-   "pages": 1,
-   "labels_on_site": 0
-  },
   "SFE ENERGY TEXAS INC": {
    "site": "https://www.sfeenergy.com",
    "pages": 13,
    "labels_on_site": 2
+  },
+  "PRONTO POWER ": {
+   "site": "https://pronto-enroll.smartgridcis.net",
+   "pages": 1,
+   "labels_on_site": 0
   },
   "SMARTENERGY HOLDINGS LLC": {
    "site": "https://texas.smartenergy.com",
@@ -285,28 +285,28 @@
  "errors": [],
  "ptc": {
   "method": "csv",
-  "rows": 933
+  "rows": 935
  },
  "probe_attempts": 0,
  "probe_hits": {},
  "summary": {
-  "plans": 1188,
+  "plans": 1194,
   "by_area": {
-   "aep_central": 206,
-   "aep_north": 199,
-   "centerpoint": 231,
-   "lubbock": 110,
-   "oncor": 230,
-   "tnmp": 212
+   "aep_central": 207,
+   "aep_north": 200,
+   "centerpoint": 232,
+   "lubbock": 111,
+   "oncor": 231,
+   "tnmp": 213
   },
   "by_method": {
-   "linear": 825,
+   "linear": 831,
    "points": 186,
    "parsed": 177
   },
-  "not_on_power_to_choose": 257,
-  "ptc_rows": 933
+  "not_on_power_to_choose": 261,
+  "ptc_rows": 935
  },
- "finished": "2026-10-19T11:30:10.689382+00:00",
- "minutes": 28.2
+ "finished": "2026-10-20T11:16:30.371046+00:00",
+ "minutes": 15.2
 }
