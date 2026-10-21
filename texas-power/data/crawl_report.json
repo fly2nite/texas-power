@@ -1,5 +1,5 @@
 {
- "started": "2026-10-20T11:01:16.792446+00:00",
+ "started": "2026-10-21T11:01:40.782277+00:00",
  "providers": {
   "TXU Energy": {
    "site": "https://www.txu.com",
@@ -104,7 +104,7 @@
   "APG&E": {
    "site": "https://www.apge.com",
    "pages": 60,
-   "labels_on_site": 3
+   "labels_on_site": 0
   },
   "Express Energy": {
    "site": "https://shopping.myexpressenergy.com",
@@ -129,7 +129,7 @@
   "Payless Power": {
    "site": "https://www.paylesspower.com",
    "pages": 60,
-   "labels_on_site": 1
+   "labels_on_site": 0
   },
   "Veteran Energy": {
    "site": "https://shopping.veteranenergyusa.com",
@@ -285,28 +285,28 @@
  "errors": [],
  "ptc": {
   "method": "csv",
-  "rows": 935
+  "rows": 926
  },
  "probe_attempts": 0,
  "probe_hits": {},
  "summary": {
-  "plans": 1194,
+  "plans": 1186,
   "by_area": {
-   "aep_central": 207,
+   "aep_central": 205,
    "aep_north": 200,
-   "centerpoint": 232,
-   "lubbock": 111,
-   "oncor": 231,
+   "centerpoint": 229,
+   "lubbock": 109,
+   "oncor": 230,
    "tnmp": 213
   },
   "by_method": {
-   "linear": 831,
-   "points": 186,
+   "linear": 809,
+   "points": 200,
    "parsed": 177
   },
-  "not_on_power_to_choose": 261,
-  "ptc_rows": 935
+  "not_on_power_to_choose": 262,
+  "ptc_rows": 926
  },
- "finished": "2026-10-20T11:16:30.371046+00:00",
- "minutes": 15.2
+ "finished": "2026-10-21T11:22:11.322750+00:00",
+ "minutes": 20.5
 }
