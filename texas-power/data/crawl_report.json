@@ -1,5 +1,5 @@
 {
- "started": "2026-10-21T11:01:40.782277+00:00",
+ "started": "2026-10-22T11:01:02.516809+00:00",
  "providers": {
   "TXU Energy": {
    "site": "https://www.txu.com",
@@ -104,7 +104,7 @@
   "APG&E": {
    "site": "https://www.apge.com",
    "pages": 60,
-   "labels_on_site": 0
+   "labels_on_site": 3
   },
   "Express Energy": {
    "site": "https://shopping.myexpressenergy.com",
@@ -206,15 +206,15 @@
    "pages": 6,
    "labels_on_site": 0
   },
-  "SFE ENERGY TEXAS INC": {
-   "site": "https://www.sfeenergy.com",
-   "pages": 13,
-   "labels_on_site": 2
-  },
   "PRONTO POWER ": {
    "site": "https://pronto-enroll.smartgridcis.net",
    "pages": 1,
    "labels_on_site": 0
+  },
+  "SFE ENERGY TEXAS INC": {
+   "site": "https://www.sfeenergy.com",
+   "pages": 13,
+   "labels_on_site": 2
   },
   "SMARTENERGY HOLDINGS LLC": {
    "site": "https://texas.smartenergy.com",
@@ -241,11 +241,6 @@
    "pages": 60,
    "labels_on_site": 0
   },
-  "Abundance Energy": {
-   "site": "https://join.abundanceenergy.com",
-   "pages": 1,
-   "labels_on_site": 0
-  },
   "AE TEXAS": {
    "site": "https://enroll.aetexasco.com",
    "pages": 37,
@@ -253,6 +248,11 @@
   },
   "Texans Choice Power LLC": {
    "site": "https://signup.texanschoicepower.com",
+   "pages": 1,
+   "labels_on_site": 0
+  },
+  "Abundance Energy": {
+   "site": "https://join.abundanceenergy.com",
    "pages": 1,
    "labels_on_site": 0
   },
@@ -285,28 +285,28 @@
  "errors": [],
  "ptc": {
   "method": "csv",
-  "rows": 926
+  "rows": 956
  },
  "probe_attempts": 0,
  "probe_hits": {},
  "summary": {
-  "plans": 1186,
+  "plans": 1286,
   "by_area": {
-   "aep_central": 205,
-   "aep_north": 200,
-   "centerpoint": 229,
-   "lubbock": 109,
-   "oncor": 230,
-   "tnmp": 213
+   "aep_central": 221,
+   "aep_north": 219,
+   "centerpoint": 249,
+   "lubbock": 122,
+   "oncor": 247,
+   "tnmp": 228
   },
   "by_method": {
-   "linear": 809,
-   "points": 200,
+   "linear": 897,
+   "points": 212,
    "parsed": 177
   },
-  "not_on_power_to_choose": 262,
-  "ptc_rows": 926
+  "not_on_power_to_choose": 332,
+  "ptc_rows": 956
  },
- "finished": "2026-10-21T11:22:11.322750+00:00",
- "minutes": 20.5
+ "finished": "2026-10-22T11:29:23.207628+00:00",
+ "minutes": 28.3
 }
