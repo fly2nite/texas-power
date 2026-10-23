@@ -1,5 +1,5 @@
 {
- "started": "2026-10-22T11:01:02.516809+00:00",
+ "started": "2026-10-23T11:02:24.227302+00:00",
  "providers": {
   "TXU Energy": {
    "site": "https://www.txu.com",
@@ -285,28 +285,28 @@
  "errors": [],
  "ptc": {
   "method": "csv",
-  "rows": 956
+  "rows": 961
  },
  "probe_attempts": 0,
  "probe_hits": {},
  "summary": {
-  "plans": 1286,
+  "plans": 1291,
   "by_area": {
-   "aep_central": 221,
-   "aep_north": 219,
+   "aep_central": 222,
+   "aep_north": 220,
    "centerpoint": 249,
-   "lubbock": 122,
-   "oncor": 247,
-   "tnmp": 228
+   "lubbock": 123,
+   "oncor": 248,
+   "tnmp": 229
   },
   "by_method": {
-   "linear": 897,
+   "linear": 902,
    "points": 212,
    "parsed": 177
   },
   "not_on_power_to_choose": 332,
-  "ptc_rows": 956
+  "ptc_rows": 961
  },
- "finished": "2026-10-22T11:29:23.207628+00:00",
- "minutes": 28.3
+ "finished": "2026-10-23T11:17:32.579345+00:00",
+ "minutes": 15.1
 }
