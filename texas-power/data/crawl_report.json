@@ -1,5 +1,5 @@
 {
- "started": "2026-10-23T11:02:24.227302+00:00",
+ "started": "2026-10-24T11:01:37.714135+00:00",
  "providers": {
   "TXU Energy": {
    "site": "https://www.txu.com",
@@ -58,7 +58,7 @@
   },
   "Rhythm": {
    "site": "https://www.gotrhythm.com",
-   "pages": 54,
+   "pages": 55,
    "labels_on_site": 0
   },
   "Energy Texas": {
@@ -104,7 +104,7 @@
   "APG&E": {
    "site": "https://www.apge.com",
    "pages": 60,
-   "labels_on_site": 3
+   "labels_on_site": 0
   },
   "Express Energy": {
    "site": "https://shopping.myexpressenergy.com",
@@ -290,23 +290,23 @@
  "probe_attempts": 0,
  "probe_hits": {},
  "summary": {
-  "plans": 1291,
+  "plans": 1294,
   "by_area": {
-   "aep_central": 222,
+   "aep_central": 223,
    "aep_north": 220,
-   "centerpoint": 249,
+   "centerpoint": 250,
    "lubbock": 123,
-   "oncor": 248,
+   "oncor": 249,
    "tnmp": 229
   },
   "by_method": {
-   "linear": 902,
-   "points": 212,
+   "linear": 903,
+   "points": 214,
    "parsed": 177
   },
-  "not_on_power_to_choose": 332,
+  "not_on_power_to_choose": 335,
   "ptc_rows": 961
  },
- "finished": "2026-10-23T11:17:32.579345+00:00",
- "minutes": 15.1
+ "finished": "2026-10-24T11:21:57.911473+00:00",
+ "minutes": 20.3
 }
