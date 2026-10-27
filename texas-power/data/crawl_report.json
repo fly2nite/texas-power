@@ -1,5 +1,5 @@
 {
- "started": "2026-10-26T11:01:47.593280+00:00",
+ "started": "2026-10-27T11:01:28.895185+00:00",
  "providers": {
   "TXU Energy": {
    "site": "https://www.txu.com",
@@ -104,7 +104,7 @@
   "APG&E": {
    "site": "https://www.apge.com",
    "pages": 60,
-   "labels_on_site": 6
+   "labels_on_site": 3
   },
   "Express Energy": {
    "site": "https://shopping.myexpressenergy.com",
@@ -231,11 +231,6 @@
    "pages": 1,
    "labels_on_site": 0
   },
-  "TRUE POWER": {
-   "site": "https://portal.truepower.com",
-   "pages": 1,
-   "labels_on_site": 0
-  },
   "CleanSky Energy": {
    "site": "https://enroll.cleanskyenergy.com",
    "pages": 60,
@@ -253,6 +248,11 @@
   },
   "Abundance Energy": {
    "site": "https://join.abundanceenergy.com",
+   "pages": 1,
+   "labels_on_site": 0
+  },
+  "TRUE POWER": {
+   "site": "https://portal.truepower.com",
    "pages": 1,
    "labels_on_site": 0
   },
@@ -285,28 +285,28 @@
  "errors": [],
  "ptc": {
   "method": "csv",
-  "rows": 961
+  "rows": 967
  },
  "probe_attempts": 0,
  "probe_hits": {},
  "summary": {
-  "plans": 1291,
+  "plans": 1306,
   "by_area": {
-   "aep_central": 222,
-   "aep_north": 220,
-   "centerpoint": 249,
-   "lubbock": 123,
-   "oncor": 248,
-   "tnmp": 229
+   "aep_central": 225,
+   "aep_north": 222,
+   "centerpoint": 252,
+   "lubbock": 126,
+   "oncor": 250,
+   "tnmp": 231
   },
   "by_method": {
-   "linear": 901,
-   "points": 213,
+   "linear": 904,
+   "points": 225,
    "parsed": 177
   },
-  "not_on_power_to_choose": 332,
-  "ptc_rows": 961
+  "not_on_power_to_choose": 341,
+  "ptc_rows": 967
  },
- "finished": "2026-10-26T11:31:35.634621+00:00",
- "minutes": 29.8
+ "finished": "2026-10-27T11:22:13.952123+00:00",
+ "minutes": 20.8
 }
