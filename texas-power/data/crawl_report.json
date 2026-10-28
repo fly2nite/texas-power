@@ -1,5 +1,5 @@
 {
- "started": "2026-10-27T11:01:28.895185+00:00",
+ "started": "2026-10-28T11:01:30.557453+00:00",
  "providers": {
   "TXU Energy": {
    "site": "https://www.txu.com",
@@ -236,6 +236,11 @@
    "pages": 60,
    "labels_on_site": 0
   },
+  "Abundance Energy": {
+   "site": "https://join.abundanceenergy.com",
+   "pages": 1,
+   "labels_on_site": 0
+  },
   "AE TEXAS": {
    "site": "https://enroll.aetexasco.com",
    "pages": 37,
@@ -243,11 +248,6 @@
   },
   "Texans Choice Power LLC": {
    "site": "https://signup.texanschoicepower.com",
-   "pages": 1,
-   "labels_on_site": 0
-  },
-  "Abundance Energy": {
-   "site": "https://join.abundanceenergy.com",
    "pages": 1,
    "labels_on_site": 0
   },
@@ -285,28 +285,28 @@
  "errors": [],
  "ptc": {
   "method": "csv",
-  "rows": 967
+  "rows": 960
  },
  "probe_attempts": 0,
  "probe_hits": {},
  "summary": {
-  "plans": 1306,
+  "plans": 1302,
   "by_area": {
-   "aep_central": 225,
+   "aep_central": 224,
    "aep_north": 222,
    "centerpoint": 252,
-   "lubbock": 126,
-   "oncor": 250,
-   "tnmp": 231
+   "lubbock": 125,
+   "oncor": 249,
+   "tnmp": 230
   },
   "by_method": {
-   "linear": 904,
-   "points": 225,
+   "linear": 912,
+   "points": 213,
    "parsed": 177
   },
-  "not_on_power_to_choose": 341,
-  "ptc_rows": 967
+  "not_on_power_to_choose": 344,
+  "ptc_rows": 960
  },
- "finished": "2026-10-27T11:22:13.952123+00:00",
- "minutes": 20.8
+ "finished": "2026-10-28T11:15:41.183285+00:00",
+ "minutes": 14.2
 }
