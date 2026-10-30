@@ -1,5 +1,5 @@
 {
- "started": "2026-10-28T11:01:30.557453+00:00",
+ "started": "2026-10-30T11:01:21.635532+00:00",
  "providers": {
   "TXU Energy": {
    "site": "https://www.txu.com",
@@ -58,7 +58,7 @@
   },
   "Rhythm": {
    "site": "https://www.gotrhythm.com",
-   "pages": 55,
+   "pages": 54,
    "labels_on_site": 0
   },
   "Energy Texas": {
@@ -168,7 +168,7 @@
   },
   "Spark Energy": {
    "site": "https://www.sparkenergy.com",
-   "pages": 60,
+   "pages": 6,
    "labels_on_site": 0
   },
   "Summer Energy": {
@@ -211,19 +211,9 @@
    "pages": 1,
    "labels_on_site": 0
   },
-  "SFE ENERGY TEXAS INC": {
-   "site": "https://www.sfeenergy.com",
-   "pages": 13,
-   "labels_on_site": 2
-  },
   "SMARTENERGY HOLDINGS LLC": {
    "site": "https://texas.smartenergy.com",
    "pages": 1,
-   "labels_on_site": 0
-  },
-  "Budget Power": {
-   "site": "https://signup.budgetpowertx.com",
-   "pages": 4,
    "labels_on_site": 0
   },
   "Companion Energy": {
@@ -241,6 +231,11 @@
    "pages": 1,
    "labels_on_site": 0
   },
+  "TRUE POWER": {
+   "site": "https://portal.truepower.com",
+   "pages": 1,
+   "labels_on_site": 0
+  },
   "AE TEXAS": {
    "site": "https://enroll.aetexasco.com",
    "pages": 37,
@@ -251,9 +246,9 @@
    "pages": 1,
    "labels_on_site": 0
   },
-  "TRUE POWER": {
-   "site": "https://portal.truepower.com",
-   "pages": 1,
+  "Budget Power": {
+   "site": "https://signup.budgetpowertx.com",
+   "pages": 2,
    "labels_on_site": 0
   },
   "NEC Co-op Energy": {
@@ -285,28 +280,28 @@
  "errors": [],
  "ptc": {
   "method": "csv",
-  "rows": 960
+  "rows": 947
  },
  "probe_attempts": 0,
  "probe_hits": {},
  "summary": {
-  "plans": 1302,
+  "plans": 1304,
   "by_area": {
    "aep_central": 224,
    "aep_north": 222,
    "centerpoint": 252,
-   "lubbock": 125,
-   "oncor": 249,
-   "tnmp": 230
+   "lubbock": 124,
+   "oncor": 250,
+   "tnmp": 232
   },
   "by_method": {
-   "linear": 912,
-   "points": 213,
+   "linear": 927,
+   "points": 200,
    "parsed": 177
   },
-  "not_on_power_to_choose": 344,
-  "ptc_rows": 960
+  "not_on_power_to_choose": 359,
+  "ptc_rows": 947
  },
- "finished": "2026-10-28T11:15:41.183285+00:00",
- "minutes": 14.2
+ "finished": "2026-10-30T11:37:41.029003+00:00",
+ "minutes": 36.3
 }
