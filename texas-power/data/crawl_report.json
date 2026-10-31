@@ -1,5 +1,5 @@
 {
- "started": "2026-10-30T11:01:21.635532+00:00",
+ "started": "2026-10-31T11:01:24.537820+00:00",
  "providers": {
   "TXU Energy": {
    "site": "https://www.txu.com",
@@ -118,7 +118,7 @@
   },
   "Octopus Energy": {
    "site": "https://octopusenergy.com",
-   "pages": 9,
+   "pages": 52,
    "labels_on_site": 0
   },
   "Tara Energy": {
@@ -168,7 +168,7 @@
   },
   "Spark Energy": {
    "site": "https://www.sparkenergy.com",
-   "pages": 6,
+   "pages": 60,
    "labels_on_site": 0
   },
   "Summer Energy": {
@@ -206,11 +206,6 @@
    "pages": 6,
    "labels_on_site": 0
   },
-  "PRONTO POWER ": {
-   "site": "https://pronto-enroll.smartgridcis.net",
-   "pages": 1,
-   "labels_on_site": 0
-  },
   "SMARTENERGY HOLDINGS LLC": {
    "site": "https://texas.smartenergy.com",
    "pages": 1,
@@ -236,19 +231,19 @@
    "pages": 1,
    "labels_on_site": 0
   },
-  "AE TEXAS": {
-   "site": "https://enroll.aetexasco.com",
-   "pages": 37,
-   "labels_on_site": 0
-  },
   "Texans Choice Power LLC": {
    "site": "https://signup.texanschoicepower.com",
    "pages": 1,
    "labels_on_site": 0
   },
+  "PRONTO POWER ": {
+   "site": "https://pronto-enroll.smartgridcis.net",
+   "pages": 1,
+   "labels_on_site": 0
+  },
   "Budget Power": {
    "site": "https://signup.budgetpowertx.com",
-   "pages": 2,
+   "pages": 4,
    "labels_on_site": 0
   },
   "NEC Co-op Energy": {
@@ -271,6 +266,11 @@
    "pages": 2,
    "labels_on_site": 0
   },
+  "AE TEXAS": {
+   "site": "https://enroll.aetexasco.com",
+   "pages": 37,
+   "labels_on_site": 0
+  },
   "VARSITY ENERGY LLC": {
    "site": "https://signup.varsityenergy.com",
    "pages": 3,
@@ -280,28 +280,28 @@
  "errors": [],
  "ptc": {
   "method": "csv",
-  "rows": 947
+  "rows": 925
  },
  "probe_attempts": 0,
  "probe_hits": {},
  "summary": {
-  "plans": 1304,
+  "plans": 1299,
   "by_area": {
    "aep_central": 224,
    "aep_north": 222,
    "centerpoint": 252,
-   "lubbock": 124,
+   "lubbock": 119,
    "oncor": 250,
    "tnmp": 232
   },
   "by_method": {
-   "linear": 927,
+   "linear": 922,
    "points": 200,
    "parsed": 177
   },
-  "not_on_power_to_choose": 359,
-  "ptc_rows": 947
+  "not_on_power_to_choose": 376,
+  "ptc_rows": 925
  },
- "finished": "2026-10-30T11:37:41.029003+00:00",
- "minutes": 36.3
+ "finished": "2026-10-31T11:15:52.501463+00:00",
+ "minutes": 14.5
 }
